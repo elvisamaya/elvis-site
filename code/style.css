@@ -119,9 +119,15 @@ section p {
   font-size: 1.25rem;
 }
 
+section#my-work2 {
+  background-color: var(--secondary-color) !important;
+}
+
+
 section#my-work {
   background-color: var(--color-3);
 }
+
 
 .section-subtitle {
   text-align: left;     /* align to left */
