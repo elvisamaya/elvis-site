@@ -208,6 +208,30 @@ section#my-work {
   transform: scale(1.05);
 }
 
+.grid-container4 {
+  margin: 3em 0;
+  display: grid;
+  width: 100%;
+  grid-template-columns: repeat(4, 1fr);
+  grid-template-rows: auto;
+  grid-template-areas: 
+    "img-1 img-2 img-3 img-4"
+    "img-1 img-2 img-3 img-4";
+  gap: 1em;
+}
+
+.grid-container4 img {
+  width: 100%;
+  aspect-ratio: 4 / 3;
+  object-fit: cover;
+  border-radius: 0.5em;
+  transition: transform 150ms ease;
+}
+
+.grid-container4 img:hover {
+  transform: scale(1.05);
+}
+
 footer a {
   margin: 0 1em;
   text-decoration: none;
