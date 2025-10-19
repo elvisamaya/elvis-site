@@ -185,6 +185,20 @@ section#my-work {
   margin: 0 0 1em 0;    /* bottom margin before grid */
 }
 
+.video-container {
+  display: flex;
+  justify-content: center;   /* centers the video horizontally */
+  margin: 2em 0;             /* adds vertical space above/below video */
+}
+
+.video-container video {
+  width: 50%;
+  height: auto;
+  object-fit: contain;
+  border-radius: 0.5em;
+  background-color: black;
+}
+
 .grid-container {
   margin-top: 3em;
   margin-bottom: 3em;
