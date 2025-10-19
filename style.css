@@ -45,8 +45,7 @@ nav ul {
 
 nav li:first-child {
   margin-right: auto;
-  font-family: Merriweather, Poppins;
-  font-weight: bold;
+  
 }
 
 nav a { 
@@ -56,6 +55,55 @@ nav a {
 
 nav a:hover { 
   text-decoration:underline;
+}
+
+.dropdown {
+  position: relative;
+}
+
+.dropdown-content {
+  display: none;
+  position: absolute;
+  top: 100%;
+  left: 0;
+  background-color: #222; /* or var(--background-color) */
+  box-shadow: 0px 4px 8px rgba(0,0,0,0.1);
+  padding: 0.5em 0;
+  border-radius: 0.5em;
+  list-style: none;
+  min-width: 150px;
+  z-index: 10;
+}
+
+.dropdown-content li {
+  padding: 0.5em 1em;
+}
+
+.dropdown-content a {
+  color: var(--text-color);
+  text-decoration: none;
+  display: block;
+}
+
+.dropdown-content a:hover {
+  background-color: #0f336e;
+}
+
+/* Show dropdown on hover */
+.dropdown:hover .dropdown-content {
+  display: block;
+}
+
+.no-click {
+  pointer-events: none;
+  cursor: default;
+  color: var(--text-color);
+  text-decoration: none;
+}
+
+nav a.active {
+  font-weight: bold;
+  text-decoration: underline;
 }
 
 header, section {
