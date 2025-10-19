@@ -61,35 +61,37 @@ nav a:hover {
   position: relative;
 }
 
+/* Hide dropdown content by default */
 .dropdown-content {
-  display: none;
+  display: none; /* <-- This line is critical */
   position: absolute;
   top: 100%;
   left: 0;
-  background-color: #222; /* or var(--background-color) */
-  box-shadow: 0px 4px 8px rgba(0,0,0,0.1);
+  background-color: #002f6c; /* match your navbar or adjust color */
   padding: 0.5em 0;
   border-radius: 0.5em;
   list-style: none;
   min-width: 150px;
   z-index: 10;
+  box-shadow: 0px 4px 8px rgba(0,0,0,0.3);
 }
 
+/* Individual dropdown items */
 .dropdown-content li {
   padding: 0.5em 1em;
 }
 
 .dropdown-content a {
-  color: var(--text-color);
+  color: white;
   text-decoration: none;
   display: block;
 }
 
 .dropdown-content a:hover {
-  background-color: #0f336e;
+  background-color: #004080;
 }
 
-/* Show dropdown on hover */
+/* Show dropdown only on hover */
 .dropdown:hover .dropdown-content {
   display: block;
 }
