@@ -199,6 +199,23 @@ section#my-work {
   background-color: black;
 }
 
+.video-row {
+  display: flex;               /* places videos side by side */
+  justify-content: center;     /* centers the row horizontally */
+  align-items: center;         /* vertically aligns videos */
+  gap: 2em;                    /* space between videos */
+  flex-wrap: wrap;             /* stack them on smaller screens */
+  margin: 2em 0;
+}
+
+.video-row video {
+  width: 35%;                  /* each takes up about half the container */
+  height: auto;
+  object-fit: contain;
+  border-radius: 0.5em;
+  background-color: black;
+}
+
 .grid-container {
   margin-top: 3em;
   margin-bottom: 3em;
