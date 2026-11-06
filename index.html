@@ -310,6 +310,72 @@ rel="noreferrer"
 <div class="project-list">
 
 <article class="project-item">
+<h3>Butter Bot</h3>
+<p>
+An autonomous mini forklift inspired by the Butter Robot from
+<em>Rick and Morty</em>, built with a teammate for Stanford's EE186
+(Embedded Systems). The robot uses a camera to find a stick of
+butter, slides its forks under a small pallet, lifts it, and
+delivers it to a red drop-off marker.
+</p>
+<p>
+An STM32 Nucleo-L4R5ZI-P runs the robot as an interrupt-driven
+state machine. It receives butter and marker positions from a XIAO
+ESP32S3 Sense camera over UART, reads heading from an LSM303AGR
+magnetometer over I2C, and drives two DC gearmotors and an SG92R
+servo with timer PWM. The 25-part 3D-printed body includes a
+parallel-link forklift that lifts the forks 30 mm while keeping
+them level. In progress, Fall 2026.
+</p>
+<div class="project-images">
+<button
+class="project-image-button"
+type="button"
+data-image="https://elvisamaya.com/images/butterbot1.jpg"
+data-caption="Butter Bot 3D Model"
+>
+<img
+src="https://elvisamaya.com/images/butterbot1.jpg"
+alt="Butter Bot 3D Model"
+/>
+</button>
+<button
+class="project-image-button"
+type="button"
+data-image="https://elvisamaya.com/images/butterbot2.jpg"
+data-caption="Butter Bot Forks Raised"
+>
+<img
+src="https://elvisamaya.com/images/butterbot2.jpg"
+alt="Butter Bot Forks Raised"
+/>
+</button>
+<button
+class="project-image-button"
+type="button"
+data-image="https://elvisamaya.com/images/butterbot3.jpg"
+data-caption="Butter Bot Forklift Detail"
+>
+<img
+src="https://elvisamaya.com/images/butterbot3.jpg"
+alt="Butter Bot Forklift Detail"
+/>
+</button>
+<button
+class="project-image-button"
+type="button"
+data-image="https://elvisamaya.com/images/butterbot4.jpg"
+data-caption="Butter Bot Exploded View"
+>
+<img
+src="https://elvisamaya.com/images/butterbot4.jpg"
+alt="Butter Bot Exploded View"
+/>
+</button>
+</div>
+</article>
+
+<article class="project-item">
 <h3>Automatic Feeder Prototype</h3>
 <p>
 This project features an Arduino Uno board along with various
