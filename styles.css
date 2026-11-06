@@ -390,6 +390,11 @@ li {
   box-shadow: var(--shadow);
 }
 
+.project-images.plots .project-image-button img {
+  object-fit: contain;
+  background: #f0f0f0;
+}
+
 .project-image-button:focus-visible img,
 .project-image-button:hover img {
   outline: 3px solid rgba(23, 63, 115, 0.28);
