@@ -45,11 +45,11 @@ alt="Portrait of Elvis Amaya"
 <span class="brand-name">Elvis Amaya</span>
 </a>
 <nav class="site-nav" id="site-nav" aria-label="Primary">
-<a href="#about">About</a>
-<a href="#goals">Goals</a>
+<a href="#architecture">Digital Hardware</a>
+<a href="#hardware">Embedded Systems</a>
 <a href="#software">Software</a>
-<a href="#hardware">Hardware</a>
 <a href="#research">Research</a>
+<a href="#goals">About</a>
 <a href="#contact">Contact</a>
 </nav>
 </aside>
@@ -58,32 +58,14 @@ alt="Portrait of Elvis Amaya"
 
 <section class="resume-section intro" id="about">
 <div class="section-inner">
-<p class="eyebrow">Hello!</p>
 <h1>
 Elvis <span>Amaya</span>
 </h1>
-<p class="subheading">
-First-generation student exploring software, hardware, and
-human-centered technology.
-</p>
-<p class="lead">
-My name is Elvis Amaya, and I am a first-generation student with a
-passion to explore, intersect, and create.
-</p>
-<p class="lead">
-I strongly believe in the strength of interdisciplinary thinking in
-creating effective human-centered solutions, and I am always eager
-to learn from different perspectives and experiences.
-</p>
+<p class="subheading">Stanford EE student building digital hardware and systems software.</p>
+<p class="lead">I’m interested in AI accelerators, computer architecture, and RTL design.</p>
 <div class="hero-actions">
-<a
-class="action-link primary"
-href="https://github.com/elvisamaya?tab=repositories"
-target="_blank"
-rel="noreferrer"
->
-View GitHub
-</a>
+<a class="action-link primary" href="#architecture">View selected projects</a>
+<a class="action-link" href="https://github.com/elvisamaya" target="_blank" rel="noreferrer">GitHub</a>
 <a
 class="action-link"
 href="https://www.linkedin.com/in/elvissebamaya"
@@ -96,208 +78,37 @@ LinkedIn
 Contact Me
 </a>
 </div>
-<div class="socials" aria-label="Social links">
-<a
-href="https://github.com/elvisamaya?tab=repositories"
-target="_blank"
-rel="noreferrer"
-aria-label="GitHub profile"
->
-<i class="fa-brands fa-github"></i>
-</a>
-<a
-href="https://www.linkedin.com/in/elvissebamaya"
-target="_blank"
-rel="noreferrer"
-aria-label="LinkedIn profile"
->
-<i class="fa-brands fa-linkedin-in"></i>
-</a>
-<a href="mailto:esamaya@stanford.edu" aria-label="Email Elvis Amaya">
-<i class="fa-solid fa-envelope"></i>
-</a>
-</div>
 </div>
 </section>
 
-<section class="resume-section" id="goals">
+<section class="resume-section" id="architecture">
 <div class="section-inner">
-<h2>My Goals</h2>
-<div class="callout">
-<p class="callout-highlight">
-My ultimate goal is to use technology to erase the gap that
-currently exists between low-income students and their engagement
-in education.
-</p>
-<p>
-In pursuit of this, I am exploring technology as a catalyst for
-creating passionate students who have an ever-expanding hunger to
-know more.
-</p>
-</div>
-</div>
-</section>
-
-<section class="resume-section" id="software">
-<div class="section-inner">
-<h2>Software</h2>
+<h2>Digital Hardware &amp; Architecture</h2>
 <div class="project-list">
 
 <article class="project-item">
-<h3>AstroML Journey</h3>
-<p>
-An interactive, story-driven web app that teaches machine learning
-fundamentals through a retro space adventure. Users travel across
-six unique "worlds" — from data collection to model evaluation —
-guided by Captain Nova, completing quizzes to unlock each stage.
-</p>
-<p>
-Built with React and Vite. Features an 8-bit pixel art UI,
-XP tracking, dynamic planet visuals, and a world-progression
-system that locks stages until the user passes each mission.
-</p>
-<a
-class="project-link"
-href="https://github.com/elvisamaya/nova-ML"
-target="_blank"
-rel="noreferrer"
->
-<i class="fa-brands fa-github"></i> View on GitHub
+<h3>Pipelined RISC-V Processor</h3>
+<p>I built single-cycle and five-stage RV32I cores in Verilog to compare how pipeline hazards affect performance. The pipelined core forwards ALU results, stalls on load-use dependencies, and flushes younger instructions on taken branches.</p>
+<p><strong>28% lower simulated CPI with forwarding</strong> on the included workloads (1.924 to 1.380). The testbench checks final registers, data memory, and retired instruction counts against a Python reference model.</p>
+<p class="pipeline-stages"><strong>Pipeline stages</strong> · Fetch → Decode → Execute → Memory → Write-back</p>
+<a class="project-link" href="https://github.com/elvisamaya/processor" target="_blank" rel="noreferrer">
+<i class="fa-brands fa-github" aria-hidden="true"></i> View Pipelined RISC-V Processor on GitHub
 </a>
 </article>
 
 <article class="project-item">
-<h3>Stock Market Simulator</h3>
-<p>
-An interactive stock market simulator that teaches investing
-fundamentals through real-time trading, simulated market dynamics,
-and guided learning. Users practice buying and selling stocks in a
-risk-free environment designed to build financial intuition.
-</p>
-<p>
-Built entirely in HTML with no external dependencies, making it
-lightweight and instantly runnable in any browser.
-</p>
-<a
-class="project-link"
-href="https://github.com/elvisamaya/stock-simulator"
-target="_blank"
-rel="noreferrer"
->
-<i class="fa-brands fa-github"></i> View on GitHub
+<h3>Digital Design RTL</h3>
+<p>I designed and verified a set of synthesizable Verilog blocks, including a UART, SPI master, and synchronous FIFO. The UART echo top connects the receiver, FIFO, and transmitter into one serial datapath.</p>
+<p><strong>Six self-checking testbenches</strong> cover cases such as randomized FIFO traffic, UART framing errors, SPI edge timing, and end-to-end echo. CI runs Icarus Verilog simulations and Verilator lint.</p>
+<figure class="rtl-waveform">
+<button class="project-image-button" type="button" data-image="./images/uart_echo_wave.png" data-caption="UART echo simulation showing receive, FIFO write, and transmit timing">
+<img src="./images/uart_echo_wave.png" loading="lazy" alt="UART echo timing waveforms for received data, FIFO writes, and serial transmission" />
+</button>
+<figcaption>UART echo simulation. The receiver decodes 0x48, queues it in the FIFO, and the transmitter sends it back.</figcaption>
+</figure>
+<a class="project-link" href="https://github.com/elvisamaya/digital-design-rtl" target="_blank" rel="noreferrer">
+<i class="fa-brands fa-github" aria-hidden="true"></i> View Digital Design RTL on GitHub
 </a>
-</article>
-
-<article class="project-item">
-<h3>Image Classifier</h3>
-<p>
-A lightweight convolutional neural network trained from scratch on
-the CIFAR-10 dataset, achieving solid validation accuracy in just
-15 epochs. The model applies data augmentation, batch normalization,
-and dropout to improve generalization on unseen images.
-</p>
-<p>
-Implemented in Python using PyTorch, with a focus on understanding
-how CNNs learn spatial features without relying on pre-trained
-weights.
-</p>
-<a
-class="project-link"
-href="https://github.com/elvisamaya/image-classifier"
-target="_blank"
-rel="noreferrer"
->
-<i class="fa-brands fa-github"></i> View on GitHub
-</a>
-</article>
-
-<article class="project-item">
-<h3>Mini LLM</h3>
-<p>
-A character-level transformer built from scratch in PyTorch to
-understand how large language models learn to generate text.
-The model learns token relationships through self-attention,
-covering the full pipeline from tokenization and embedding to
-multi-head attention and autoregressive text generation.
-</p>
-<p>
-The goal was a deep, hands-on understanding of transformer
-architecture rather than relying on existing libraries or APIs.
-</p>
-<a
-class="project-link"
-href="https://github.com/elvisamaya/mini_llm"
-target="_blank"
-rel="noreferrer"
->
-<i class="fa-brands fa-github"></i> View on GitHub
-</a>
-</article>
-
-<article class="project-item">
-<h3>tela</h3>
-<p>
-A fashion-focused app prototype that helps users track their
-closet, build outfits, get style inspiration, and explore outfit
-posts. The app features a wardrobe library, an AI-powered style
-prompt generator, a social explore feed, and a profile with past
-fits — all running locally in the browser with no backend.
-</p>
-<p>
-Built as a single-page HTML app with a clean, mobile-first UI.
-Includes closet stats, outfit shuffling, a post composer, and
-a mood-based inspo generator.
-</p>
-<a
-class="project-link"
-href="https://github.com/elvisamaya/tela"
-target="_blank"
-rel="noreferrer"
->
-<i class="fa-brands fa-github"></i> View on GitHub
-</a>
-</article>
-
-<article class="project-item">
-<h3>Turtle Graphics</h3>
-<p>
-This interactive Python project uses the turtle graphics module
-to simulate a colorful racing game between multiple turtles.
-Players choose the number of racers from 2 to 10, and each
-turtle moves forward by random distances as it competes to reach
-the finish line first.
-</p>
-<p>
-Randomly placed obstacles on the track slow down or stop racers,
-adding an element of unpredictability and strategy.
-</p>
-<div class="media-grid single compact">
-<video class="project-video" controls muted loop playsinline preload="metadata">
-<source src="https://elvisamaya.com/videos/turtle.mp4" type="video/mp4" />
-</video>
-</div>
-</article>
-
-<article class="project-item">
-<h3>BFS &amp; DFS Algorithms</h3>
-<p>
-This visualization compares Breadth-First Search and
-Depth-First Search in maze traversal. Each algorithm explores
-the maze differently, with BFS finding the shortest path layer
-by layer while DFS dives deep before backtracking.
-</p>
-<p>
-Both are implemented in Python and animated using the
-`curses` library.
-</p>
-<div class="media-grid double compact">
-<video class="project-video" controls muted loop playsinline preload="metadata">
-<source src="https://elvisamaya.com/videos/bfs.mp4" type="video/mp4" />
-</video>
-<video class="project-video" controls muted loop playsinline preload="metadata">
-<source src="https://elvisamaya.com/videos/dfs.mp4" type="video/mp4" />
-</video>
-</div>
 </article>
 
 </div>
@@ -306,7 +117,7 @@ Both are implemented in Python and animated using the
 
 <section class="resume-section" id="hardware">
 <div class="section-inner">
-<h2>Hardware</h2>
+<h2>Embedded Systems &amp; Signal Processing</h2>
 <div class="project-list">
 
 <article class="project-item">
@@ -376,6 +187,31 @@ alt="Heart-Band Chest Motion"
 </article>
 
 <article class="project-item">
+<h3>RTOS Task Scheduler</h3>
+<p>
+A multitasking embedded firmware system built on an STM32 Nucleo
+board using FreeRTOS. The system runs concurrent tasks for sensor
+polling, motor control, status LEDs, and a UART command shell —
+all coordinated through task priorities, preemption, queue-based
+messaging, and mutex-protected output.
+</p>
+<p>
+Commands like <code>motor open</code>, <code>led on</code>, and
+<code>status</code> can be issued live over serial. Hardware
+includes the STM32 NUCLEO-F446RE, an SG90 servo, and an external
+5V supply. Firmware written in C.
+</p>
+<a
+class="project-link"
+href="https://github.com/elvisamaya/RTOS-Task-Scheduler"
+target="_blank"
+rel="noreferrer"
+>
+<i class="fa-brands fa-github"></i> View on GitHub
+</a>
+</article>
+
+<article class="project-item">
 <h3>Butter Bot</h3>
 <p>
 An autonomous mini forklift inspired by the Butter Robot from
@@ -440,181 +276,44 @@ alt="Butter Bot Exploded View"
 </div>
 </article>
 
-<article class="project-item">
-<h3>Automatic Feeder Prototype</h3>
-<p>
-This project features an Arduino Uno board along with various
-electronic components to power the feeder system. It uses a
-motion sensor to detect an animal's presence and activates a
-motor that releases food.
-</p>
-<p>
-By providing a reliable food source, the feeder aims to reduce
-the risk of species decline and support the balance of
-ecosystems.
-</p>
-<div class="project-images">
-<button
-class="project-image-button"
-type="button"
-data-image="https://elvisamaya.com/images/proto1.png"
-data-caption="Automatic Feeder Prototype"
->
-<img
-src="https://elvisamaya.com/images/proto1.png"
-alt="Automatic Feeder Prototype"
-/>
-</button>
-<button
-class="project-image-button"
-type="button"
-data-image="https://elvisamaya.com/images/cad1.png"
-data-caption="Automatic Feeder CAD Design"
->
-<img
-src="https://elvisamaya.com/images/cad1.png"
-alt="Automatic Feeder CAD Design"
-/>
-</button>
-<button
-class="project-image-button"
-type="button"
-data-image="https://elvisamaya.com/images/cad2.png"
-data-caption="Automatic Feeder CAD Detail"
->
-<img
-src="https://elvisamaya.com/images/cad2.png"
-alt="Automatic Feeder CAD Detail"
-/>
-</button>
 </div>
+</div>
+</section>
+
+<section class="resume-section" id="software">
+<div class="section-inner">
+<h2>Software</h2>
+<div class="project-list">
+
+<article class="project-item">
+<h3>Mini LLM</h3>
+<p>I implemented a character-level transformer in PyTorch. Its attention heads use a causal mask so each position only attends to itself and earlier characters. The command-line interface trains on a text file and samples from a saved checkpoint.</p>
+<a class="project-link" href="https://github.com/elvisamaya/mini_llm" target="_blank" rel="noreferrer">
+<i class="fa-brands fa-github" aria-hidden="true"></i> View Mini LLM on GitHub
+</a>
 </article>
 
 <article class="project-item">
-<h3>Solar-Powered Charger</h3>
-<p>
-I designed and built a solar-powered USB charger capable of
-charging small electronic devices such as cellphones, iPods, and
-tablets. The system uses a solar panel to capture sunlight and
-convert it into electrical energy, which is then stored in a
-rechargeable lithium-polymer battery.
-</p>
-<p>
-Because USB devices require a constant 5V output and the LiPo
-battery provides only about 3.7V, the build integrates a DC-DC
-voltage converter to step up the voltage.
-</p>
-<div class="project-images">
-<button
-class="project-image-button"
-type="button"
-data-image="https://elvisamaya.com/images/charge1.jpg"
-data-caption="Solar-Powered Charger Build"
->
-<img
-src="https://elvisamaya.com/images/charge1.jpg"
-alt="Solar-Powered Charger Build"
-/>
-</button>
-<button
-class="project-image-button"
-type="button"
-data-image="https://elvisamaya.com/images/charge2.jpg"
-data-caption="Solar-Powered Charger Components"
->
-<img
-src="https://elvisamaya.com/images/charge2.jpg"
-alt="Solar-Powered Charger Components"
-/>
-</button>
-</div>
+<h3>AstroML Journey</h3>
+<p>I built a React and Vite app that teaches machine learning through six space-themed lessons. React state tracks quiz answers and completed missions, and the stage selector uses that state to unlock the next world after a correct answer.</p>
+<a class="project-link" href="https://github.com/elvisamaya/nova-ML" target="_blank" rel="noreferrer">
+<i class="fa-brands fa-github" aria-hidden="true"></i> View AstroML Journey on GitHub
+</a>
 </article>
 
 <article class="project-item">
-<h3>Useless Box</h3>
-<p>
-This project involved designing and building a motorized
-"useless box," a playful gadget that turns itself off whenever
-switched on. When the user flips the external toggle switch to
-the on position, a mechanical finger driven by a DC motor
-emerges from the box, flips the switch back off, and then
-retracts inside.
-</p>
-<p>
-The system uses three AA batteries, a DPDT switch for directional
-control, and an SPDT microswitch to detect when the finger is
-fully retracted and stop the motor.
-</p>
-<div class="project-images">
-<button
-class="project-image-button"
-type="button"
-data-image="https://elvisamaya.com/images/box1.jpg"
-data-caption="Useless Box Prototype"
->
-<img
-src="https://elvisamaya.com/images/box1.jpg"
-alt="Useless Box Prototype"
-/>
-</button>
-<button
-class="project-image-button"
-type="button"
-data-image="https://elvisamaya.com/images/box2.jpg"
-data-caption="Useless Box Mechanism"
->
-<img
-src="https://elvisamaya.com/images/box2.jpg"
-alt="Useless Box Mechanism"
-/>
-</button>
-<button
-class="project-image-button"
-type="button"
-data-image="https://elvisamaya.com/images/box3.jpg"
-data-caption="Useless Box Build Detail"
->
-<img
-src="https://elvisamaya.com/images/box3.jpg"
-alt="Useless Box Build Detail"
-/>
-</button>
-<button
-class="project-image-button"
-type="button"
-data-image="https://elvisamaya.com/images/box4.png"
-data-caption="Useless Box Circuit Diagram"
->
-<img
-src="https://elvisamaya.com/images/box4.png"
-alt="Useless Box Circuit Diagram"
-/>
-</button>
-</div>
+<h3>Image Classifier</h3>
+<p>A small PyTorch CNN trained from scratch on CIFAR-10 with data augmentation, batch normalization, and dropout.</p>
+<a class="project-link" href="https://github.com/elvisamaya/image-classifier" target="_blank" rel="noreferrer">
+<i class="fa-brands fa-github" aria-hidden="true"></i> View Image Classifier on GitHub
+</a>
 </article>
 
 <article class="project-item">
-<h3>RTOS Task Scheduler</h3>
-<p>
-A multitasking embedded firmware system built on an STM32 Nucleo
-board using FreeRTOS. The system runs concurrent tasks for sensor
-polling, motor control, status LEDs, and a UART command shell —
-all coordinated through task priorities, preemption, queue-based
-messaging, and mutex-protected output.
-</p>
-<p>
-Commands like <code>motor open</code>, <code>led on</code>, and
-<code>status</code> can be issued live over serial. Hardware
-includes the STM32 NUCLEO-F446RE, an SG90 servo, and an external
-5V supply. Firmware written in C.
-</p>
-<a
-class="project-link"
-href="https://github.com/elvisamaya/RTOS-Task-Scheduler"
-target="_blank"
-rel="noreferrer"
->
-<i class="fa-brands fa-github"></i> View on GitHub
+<h3>tela</h3>
+<p>A browser-based wardrobe prototype that saves clothing and outfit posts in local storage and suggests combinations from past outfits.</p>
+<a class="project-link" href="https://github.com/elvisamaya/tela" target="_blank" rel="noreferrer">
+<i class="fa-brands fa-github" aria-hidden="true"></i> View tela on GitHub
 </a>
 </article>
 
@@ -700,6 +399,66 @@ alt="VR Learning Research Scene 5"
 </div>
 </article>
 
+</div>
+</div>
+</section>
+
+<section class="resume-section" id="more-projects">
+<div class="section-inner">
+<h2>More Projects</h2>
+<div class="project-list">
+
+<article class="project-item">
+<h3>Automatic Feeder Prototype</h3>
+<p>An Arduino feeder that uses a PIR interrupt to trigger a motor and logs events over serial.</p>
+<a class="project-link" href="https://github.com/elvisamaya/wildlife-feeder" target="_blank" rel="noreferrer">
+<i class="fa-brands fa-github" aria-hidden="true"></i> View Automatic Feeder Prototype on GitHub
+</a>
+</article>
+
+<article class="project-item">
+<h3>Solar-Powered Charger</h3>
+<p>A solar-powered USB charger prototype with a LiPo battery and a DC-DC boost converter.</p>
+</article>
+
+<article class="project-item">
+<h3>Useless Box</h3>
+<p>A motorized box that flips its own switch off using a mechanical lever and a limit switch.</p>
+</article>
+
+<article class="project-item">
+<h3>Stock Market Simulator</h3>
+<p>A single-page browser simulator for practicing stock trades.</p>
+<a class="project-link" href="https://github.com/elvisamaya/stock-simulator" target="_blank" rel="noreferrer">
+<i class="fa-brands fa-github" aria-hidden="true"></i> View Stock Market Simulator on GitHub
+</a>
+</article>
+
+<article class="project-item">
+<h3>BFS &amp; DFS Algorithms</h3>
+<p>A Python curses demo that animates breadth-first and depth-first maze traversal.</p>
+<a class="project-link" href="https://github.com/elvisamaya/bfs-algorithm" target="_blank" rel="noreferrer">
+<i class="fa-brands fa-github" aria-hidden="true"></i> View BFS &amp; DFS Algorithms on GitHub
+</a>
+</article>
+
+<article class="project-item">
+<h3>Turtle Graphics</h3>
+<p>A Python turtle racing game with randomized movement and obstacles.</p>
+<a class="project-link" href="https://github.com/elvisamaya/racers" target="_blank" rel="noreferrer">
+<i class="fa-brands fa-github" aria-hidden="true"></i> View Turtle Graphics on GitHub
+</a>
+</article>
+
+</div>
+</div>
+</section>
+
+<section class="resume-section" id="goals">
+<div class="section-inner">
+<h2>About Me</h2>
+<div class="callout">
+<p>I’m a first-generation student studying electrical engineering and computer science at Stanford. I want to use technology to make learning more engaging and accessible for students from low-income communities.</p>
 </div>
 </div>
 </section>
