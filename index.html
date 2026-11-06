@@ -310,6 +310,26 @@ Both are implemented in Python and animated using the
 <div class="project-list">
 
 <article class="project-item">
+<h3>Vital Sign Monitoring with mmWave Radar</h3>
+<p>
+A contactless heart rate and respiration monitoring system built
+with a 77 GHz FMCW mmWave radar (TI IWR6843ISK). Instead of
+wearable or contact sensors like PPG, it measures sub-millimeter
+chest displacement from the phase of the radar signal.
+</p>
+<p>
+I derived and implemented the full signal processing pipeline
+(range-FFT, DC offset correction, phase extraction and unwrapping,
+and slow-time FFT) and designed the chirp parameters to reach under
+0.1 Hz frequency resolution, enough to separate breathing
+(0.2&ndash;0.5 Hz) from heart rate (1&ndash;1.6 Hz). Across multiple
+trials, the system reliably detected respiratory rate (14&ndash;19 bpm)
+and heart rate (61&ndash;80 bpm) from 1 m away. Stanford University,
+May&ndash;June 2026.
+</p>
+</article>
+
+<article class="project-item">
 <h3>Butter Bot</h3>
 <p>
 An autonomous mini forklift inspired by the Butter Robot from
