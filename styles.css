@@ -356,6 +356,19 @@ li {
   min-height: 18rem;
 }
 
+.media-grid.single.compact {
+  max-width: 22rem;
+}
+
+.media-grid.double.compact {
+  max-width: 32rem;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+}
+
+.media-grid.compact .project-video {
+  min-height: 0;
+}
+
 .presentation-frame {
   min-height: 34rem;
   margin-top: 1rem;
