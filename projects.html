@@ -1,0 +1,257 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Projects | Elvis Amaya</title>
+<meta name="description" content="Digital hardware, embedded systems, and software projects by Elvis Amaya." />
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link
+href="https://fonts.googleapis.com/css2?family=Hanken+Grotesk:wght@400;500;600;700&family=JetBrains+Mono:wght@400&display=swap"
+rel="stylesheet"
+/>
+<link
+rel="stylesheet"
+href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css"
+crossorigin="anonymous"
+referrerpolicy="no-referrer"
+/>
+<link rel="stylesheet" href="./styles.css" />
+</head>
+<body>
+<button class="mobile-nav-toggle" type="button" aria-expanded="false" aria-controls="site-nav" aria-label="Toggle navigation">
+<span></span><span></span><span></span>
+</button>
+
+<aside class="sidebar">
+<a class="brand" href="./index.html" aria-label="Home">
+<img class="profile-image" src="./images/elvis-profile.jpg" alt="Portrait of Elvis Amaya" />
+<span class="brand-name">Elvis Amaya</span>
+</a>
+<nav class="site-nav" id="site-nav" aria-label="Primary">
+<a href="./index.html">About</a>
+<a href="./experience.html">Experience</a>
+<a href="./projects.html" aria-current="page">Projects</a>
+<a href="./index.html#contact">Contact</a>
+</nav>
+<div class="sidebar-socials">
+<a href="https://github.com/elvisamaya" target="_blank" rel="noreferrer" aria-label="GitHub"><i class="fa-brands fa-github"></i></a>
+<a href="https://www.linkedin.com/in/elvissebamaya" target="_blank" rel="noreferrer" aria-label="LinkedIn"><i class="fa-brands fa-linkedin-in"></i></a>
+<a href="mailto:esamaya@stanford.edu" aria-label="Email"><i class="fa-solid fa-envelope"></i></a>
+</div>
+</aside>
+
+<main class="page">
+
+<section class="section page-header">
+<div class="section-inner">
+<p class="eyebrow">Projects</p>
+<h1>Things I've built</h1>
+<p class="page-intro">
+From chip layout to firmware to machine learning. Pick a category below.
+</p>
+</div>
+</section>
+
+<div class="tabs" role="tablist" aria-label="Project categories">
+<button class="tab" role="tab" id="tab-digital" aria-controls="digital" aria-selected="true">Digital Hardware<span class="tab-count">3</span></button>
+<button class="tab" role="tab" id="tab-embedded" aria-controls="embedded" aria-selected="false">Embedded Systems<span class="tab-count">6</span></button>
+<button class="tab" role="tab" id="tab-software" aria-controls="software" aria-selected="false">Software<span class="tab-count">7</span></button>
+</div>
+
+<!-- ================================================================ DIGITAL HARDWARE -->
+<section class="section tab-panel" id="digital" role="tabpanel" aria-labelledby="tab-digital">
+<div class="section-inner">
+<p class="panel-intro">
+RTL design in Verilog, verification against independent reference models, computer architecture,
+and taking designs through synthesis and physical layout.
+</p>
+<div class="project-list">
+
+<article class="project-item featured">
+<h3>Systolic-Array AI Accelerator</h3>
+<p class="project-meta">Verilog · Python/NumPy · Yosys · OpenLane · SkyWater 130nm</p>
+<div class="split-figure">
+<div>
+<p>An int8 matrix-multiply accelerator built around a 4×4 output-stationary systolic array, the same architecture as Google's TPU. It's memory-mapped onto my pipelined RISC-V processor, and the CPU drives it with ordinary loads and stores.</p>
+<p>I ran a quantized handwritten-digit classifier on it: every hardware layer output matched NumPy bit for bit. Then I took the design from RTL to a placed-and-routed SkyWater 130nm layout with OpenLane: 0 DRC and LVS errors, and 100 MHz timing met at the typical corner.</p>
+<p>Verification compared about 3.1 million multiply-accumulates against a NumPy golden model, and all 8 deliberately planted bugs were caught.</p>
+</div>
+<button class="project-image-button" type="button" data-image="./images/accel_layout.jpg" data-caption="Placed-and-routed accelerator layout, SkyWater 130nm (≈0.76 × 0.76 mm)">
+<img src="./images/accel_layout.jpg" loading="lazy" alt="Placed and routed chip layout of the accelerator" />
+</button>
+</div>
+<div class="stat-row">
+<div class="stat"><b>87.6×</b><span>faster than the CPU alone</span></div>
+<div class="stat"><b>95.8%</b><span>int8 accuracy, bit-exact</span></div>
+<div class="stat"><b>~300 MHz</b><span>array, pre-layout estimate</span></div>
+<div class="stat"><b>0 / 0</b><span>DRC / LVS errors</span></div>
+</div>
+<a class="project-link" href="https://github.com/elvisamaya/systolic-accelerator" target="_blank" rel="noreferrer"><i class="fa-brands fa-github"></i> View on GitHub</a>
+</article>
+
+<article class="project-item">
+<h3>Pipelined RISC-V Processor</h3>
+<p class="project-meta">Verilog · RV32I · Python</p>
+<p>Single-cycle and five-stage RV32I cores, built to compare how pipeline hazards affect performance. The pipelined core forwards ALU results, stalls on load-use dependencies, and flushes younger instructions on taken branches.</p>
+<p>I wrote my own assembler and instruction-set simulator as a golden model. Every program's final registers, memory and instruction count must match it exactly, including thousands of randomly generated instructions.</p>
+<div class="stat-row">
+<div class="stat"><b>28%</b><span>lower CPI with forwarding</span></div>
+<div class="stat"><b>1.92 → 1.38</b><span>cycles per instruction</span></div>
+<div class="stat"><b>8 / 8</b><span>planted bugs caught</span></div>
+</div>
+<a class="project-link" href="https://github.com/elvisamaya/processor" target="_blank" rel="noreferrer"><i class="fa-brands fa-github"></i> View on GitHub</a>
+</article>
+
+<article class="project-item">
+<h3>Digital Design RTL</h3>
+<p class="project-meta">Verilog · Icarus Verilog · Verilator · GitHub Actions</p>
+<p>A set of synthesizable building blocks: UART, SPI master, synchronous FIFO, button debouncer, and a traffic-light state machine. A UART echo top level connects the receiver, FIFO and transmitter into one serial datapath.</p>
+<p>Six self-checking testbenches cover randomized FIFO traffic, UART framing errors, SPI edge timing, and safety properties checked every cycle. CI runs every simulation and Verilator lint on each push.</p>
+<figure class="wide-figure">
+<button class="project-image-button" type="button" data-image="./images/uart_echo_wave.png" data-caption="UART echo simulation showing receive, FIFO write, and transmit timing">
+<img src="./images/uart_echo_wave.png" loading="lazy" alt="UART echo timing waveforms" />
+</button>
+<figcaption>UART echo simulation: the receiver decodes 0x48, queues it in the FIFO, and the transmitter sends it back.</figcaption>
+</figure>
+<a class="project-link" href="https://github.com/elvisamaya/digital-design-rtl" target="_blank" rel="noreferrer"><i class="fa-brands fa-github"></i> View on GitHub</a>
+</article>
+
+</div>
+</div>
+</section>
+
+<!-- ================================================================ EMBEDDED -->
+<section class="section tab-panel" id="embedded" role="tabpanel" aria-labelledby="tab-embedded">
+<div class="section-inner">
+<p class="panel-intro">
+Firmware, real-time systems, sensors and signal processing: hardware that interacts with the physical world.
+</p>
+<div class="project-list">
+
+<article class="project-item featured">
+<h3>Vital Sign Monitoring with mmWave Radar</h3>
+<p class="project-meta">TI IWR6843ISK · 77 GHz FMCW radar · signal processing · Stanford, May–June 2026</p>
+<p>A contactless heart-rate and respiration monitor. Instead of wearable or contact sensors like PPG, it measures sub-millimeter chest displacement from the phase of the radar signal.</p>
+<p>I derived and implemented the full signal-processing pipeline (range-FFT, DC offset correction, phase extraction and unwrapping, and slow-time FFT) and designed the chirp parameters to reach under 0.1 Hz frequency resolution. That's enough to separate breathing (0.2–0.5 Hz) from heart rate (1–1.6 Hz). Across multiple trials it reliably detected respiratory rate (14–19 bpm) and heart rate (61–80 bpm) from 1 m away.</p>
+<div class="project-images plots">
+<button class="project-image-button photo" type="button" data-image="./images/radar_setup.jpg" data-caption="mmWave radar test setup"><img src="./images/radar_setup.jpg" loading="lazy" alt="mmWave radar test setup" /></button>
+<button class="project-image-button" type="button" data-image="./images/radar1.png" data-caption="Raw displacement per RX"><img src="./images/radar1.png" loading="lazy" alt="Raw displacement per RX" /></button>
+<button class="project-image-button" type="button" data-image="./images/radar2.png" data-caption="Breathing-band chest motion"><img src="./images/radar2.png" loading="lazy" alt="Breathing-band chest motion" /></button>
+<button class="project-image-button" type="button" data-image="./images/radar3.png" data-caption="Heart-band chest motion"><img src="./images/radar3.png" loading="lazy" alt="Heart-band chest motion" /></button>
+</div>
+</article>
+
+<article class="project-item">
+<h3>Butter Bot</h3>
+<p class="project-meta">STM32 · ESP32S3 camera · I2C · UART · PWM · 3D printing · in progress, Fall 2026</p>
+<p>An autonomous mini forklift inspired by the Butter Robot from <em>Rick and Morty</em>. It uses a camera to find a stick of butter, slides its forks under a small pallet, lifts it, and delivers it to a red drop-off marker.</p>
+<p>An STM32 Nucleo-L4R5ZI-P runs the robot as an interrupt-driven state machine. It receives butter and marker positions from a XIAO ESP32S3 Sense camera over UART, reads heading from an LSM303AGR magnetometer over I2C, and drives two DC gearmotors and an SG92R servo with timer PWM. The 25-part 3D-printed body includes a parallel-link forklift that lifts the forks 30 mm while keeping them level.</p>
+<div class="project-images">
+<button class="project-image-button" type="button" data-image="./images/butterbot1.jpg" data-caption="Butter Bot 3D model"><img src="./images/butterbot1.jpg" loading="lazy" alt="Butter Bot 3D model" /></button>
+<button class="project-image-button" type="button" data-image="./images/butterbot2.jpg" data-caption="Butter Bot forks raised"><img src="./images/butterbot2.jpg" loading="lazy" alt="Butter Bot forks raised" /></button>
+<button class="project-image-button" type="button" data-image="./images/butterbot3.jpg" data-caption="Butter Bot forklift detail"><img src="./images/butterbot3.jpg" loading="lazy" alt="Butter Bot forklift detail" /></button>
+<button class="project-image-button" type="button" data-image="./images/butterbot4.jpg" data-caption="Butter Bot exploded view"><img src="./images/butterbot4.jpg" loading="lazy" alt="Butter Bot exploded view" /></button>
+</div>
+</article>
+
+<article class="project-item">
+<h3>RTOS Task Scheduler</h3>
+<p class="project-meta">STM32 NUCLEO-F446RE · FreeRTOS · C</p>
+<p>Multitasking firmware with concurrent tasks for sensor polling, motor control, status LEDs and a UART command shell, coordinated through task priorities, preemption, queue-based messaging and mutex-protected output.</p>
+<p>Commands like <code>motor open</code>, <code>led on</code> and <code>status</code> can be issued live over serial. The hardware is an STM32 NUCLEO-F446RE, an SG90 servo, and an external 5 V supply.</p>
+<a class="project-link" href="https://github.com/elvisamaya/RTOS-Task-Scheduler" target="_blank" rel="noreferrer"><i class="fa-brands fa-github"></i> View on GitHub</a>
+</article>
+
+</div>
+
+<h3 class="subsection-title">More embedded projects</h3>
+<div class="compact-grid">
+<article class="project-item">
+<h3>Automatic Feeder Prototype</h3>
+<p>An Arduino feeder that uses a PIR interrupt to trigger a motor and logs events over serial.</p>
+<a class="project-link" href="https://github.com/elvisamaya/wildlife-feeder" target="_blank" rel="noreferrer"><i class="fa-brands fa-github"></i> GitHub</a>
+</article>
+<article class="project-item">
+<h3>Solar-Powered Charger</h3>
+<p>A solar-powered USB charger prototype with a LiPo battery and a DC-DC boost converter.</p>
+</article>
+<article class="project-item">
+<h3>Useless Box</h3>
+<p>A motorized box that flips its own switch off using a mechanical lever and a limit switch.</p>
+</article>
+</div>
+</div>
+</section>
+
+<!-- ================================================================ SOFTWARE -->
+<section class="section tab-panel" id="software" role="tabpanel" aria-labelledby="tab-software">
+<div class="section-inner">
+<p class="panel-intro">
+Machine learning from scratch, interactive learning tools, and web apps.
+</p>
+<div class="project-list">
+
+<article class="project-item">
+<h3>Mini LLM</h3>
+<p class="project-meta">Python · PyTorch</p>
+<p>A character-level transformer. Its attention heads use a causal mask, so each position only attends to itself and earlier characters. The command-line interface trains on a text file and samples from a saved checkpoint.</p>
+<a class="project-link" href="https://github.com/elvisamaya/mini_llm" target="_blank" rel="noreferrer"><i class="fa-brands fa-github"></i> View on GitHub</a>
+</article>
+
+<article class="project-item">
+<h3>AstroML Journey</h3>
+<p class="project-meta">React · Vite</p>
+<p>An app that teaches machine learning through six space-themed lessons. React state tracks quiz answers and completed missions, and the stage selector unlocks the next world after a correct answer.</p>
+<a class="project-link" href="https://github.com/elvisamaya/nova-ML" target="_blank" rel="noreferrer"><i class="fa-brands fa-github"></i> View on GitHub</a>
+</article>
+
+<article class="project-item">
+<h3>Image Classifier</h3>
+<p class="project-meta">Python · PyTorch</p>
+<p>A small CNN trained from scratch on CIFAR-10 with data augmentation, batch normalization and dropout.</p>
+<a class="project-link" href="https://github.com/elvisamaya/image-classifier" target="_blank" rel="noreferrer"><i class="fa-brands fa-github"></i> View on GitHub</a>
+</article>
+
+<article class="project-item">
+<h3>tela</h3>
+<p class="project-meta">JavaScript</p>
+<p>A browser-based wardrobe prototype that saves clothing and outfit posts in local storage and suggests combinations from past outfits.</p>
+<a class="project-link" href="https://github.com/elvisamaya/tela" target="_blank" rel="noreferrer"><i class="fa-brands fa-github"></i> View on GitHub</a>
+</article>
+
+</div>
+
+<h3 class="subsection-title">More software projects</h3>
+<div class="compact-grid">
+<article class="project-item">
+<h3>Stock Market Simulator</h3>
+<p>A single-page browser simulator for practicing stock trades.</p>
+<a class="project-link" href="https://github.com/elvisamaya/stock-simulator" target="_blank" rel="noreferrer"><i class="fa-brands fa-github"></i> GitHub</a>
+</article>
+<article class="project-item">
+<h3>BFS &amp; DFS Algorithms</h3>
+<p>A Python curses demo that animates breadth-first and depth-first maze traversal.</p>
+<a class="project-link" href="https://github.com/elvisamaya/bfs-algorithm" target="_blank" rel="noreferrer"><i class="fa-brands fa-github"></i> GitHub</a>
+</article>
+<article class="project-item">
+<h3>Turtle Graphics</h3>
+<p>A Python turtle racing game with randomized movement and obstacles.</p>
+<a class="project-link" href="https://github.com/elvisamaya/racers" target="_blank" rel="noreferrer"><i class="fa-brands fa-github"></i> GitHub</a>
+</article>
+</div>
+</div>
+</section>
+
+</main>
+
+<dialog class="image-modal" aria-label="Expanded project image">
+<button class="modal-close" type="button" aria-label="Close image">&times;</button>
+<img class="modal-image" alt="" />
+<p class="modal-caption"></p>
+</dialog>
+
+<script src="./script.js"></script>
+</body>
+</html>

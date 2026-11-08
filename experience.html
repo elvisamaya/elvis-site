@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Experience | Elvis Amaya</title>
+<meta name="description" content="Research, education, and experience of Elvis Amaya." />
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link
+href="https://fonts.googleapis.com/css2?family=Hanken+Grotesk:wght@400;500;600;700&family=JetBrains+Mono:wght@400&display=swap"
+rel="stylesheet"
+/>
+<link
+rel="stylesheet"
+href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css"
+crossorigin="anonymous"
+referrerpolicy="no-referrer"
+/>
+<link rel="stylesheet" href="./styles.css" />
+</head>
+<body>
+<button class="mobile-nav-toggle" type="button" aria-expanded="false" aria-controls="site-nav" aria-label="Toggle navigation">
+<span></span><span></span><span></span>
+</button>
+
+<aside class="sidebar">
+<a class="brand" href="./index.html" aria-label="Home">
+<img class="profile-image" src="./images/elvis-profile.jpg" alt="Portrait of Elvis Amaya" />
+<span class="brand-name">Elvis Amaya</span>
+</a>
+<nav class="site-nav" id="site-nav" aria-label="Primary">
+<a href="./index.html">About</a>
+<a href="./experience.html" aria-current="page">Experience</a>
+<a href="./projects.html">Projects</a>
+<a href="./index.html#contact">Contact</a>
+</nav>
+<div class="sidebar-socials">
+<a href="https://github.com/elvisamaya" target="_blank" rel="noreferrer" aria-label="GitHub"><i class="fa-brands fa-github"></i></a>
+<a href="https://www.linkedin.com/in/elvissebamaya" target="_blank" rel="noreferrer" aria-label="LinkedIn"><i class="fa-brands fa-linkedin-in"></i></a>
+<a href="mailto:esamaya@stanford.edu" aria-label="Email"><i class="fa-solid fa-envelope"></i></a>
+</div>
+</aside>
+
+<main class="page">
+
+<section class="section page-header">
+<div class="section-inner">
+<p class="eyebrow">Experience</p>
+<h1>Research &amp; education</h1>
+<p class="page-intro">Where I've learned and worked so far.</p>
+</div>
+</section>
+
+<section class="section">
+<div class="section-inner">
+<ol class="timeline">
+
+<li>
+<article class="project-item">
+<h3>Stanford University</h3>
+<p class="role">B.S. candidate, Electrical Engineering &amp; Computer Science</p>
+<p class="when">Third year</p>
+<p>Focus on digital hardware, computer architecture and embedded systems. Recent work includes a contactless mmWave radar vital-sign monitor (May–June 2026), and independent projects in RTL design, processor microarchitecture and AI accelerators (see <a class="inline-link" href="./projects.html">Projects</a>).</p>
+</article>
+</li>
+
+<li>
+<article class="project-item">
+<h3>Networked Systems Lab, USC Viterbi School of Engineering</h3>
+<p class="role">Research: virtual reality for history education</p>
+<p class="when">With Prof. Ramesh Govindan and Ph.D. student Rajrup Ghosh</p>
+<p>Explored the intersection of technology, history and education. Using Unity, an Oculus VR headset and a computer, I built historical scenes in virtual reality so that teachers and students could immerse themselves in U.S. history.</p>
+<div class="project-images">
+<button class="project-image-button" type="button" data-image="./images/vr1.png" data-caption="VR learning research scene 1"><img src="./images/vr1.png" loading="lazy" alt="VR learning research scene 1" /></button>
+<button class="project-image-button" type="button" data-image="./images/vr2.png" data-caption="VR learning research scene 2"><img src="./images/vr2.png" loading="lazy" alt="VR learning research scene 2" /></button>
+<button class="project-image-button" type="button" data-image="./images/vr3.png" data-caption="VR learning research scene 3"><img src="./images/vr3.png" loading="lazy" alt="VR learning research scene 3" /></button>
+<button class="project-image-button" type="button" data-image="./images/vr4.png" data-caption="VR learning research scene 4"><img src="./images/vr4.png" loading="lazy" alt="VR learning research scene 4" /></button>
+<button class="project-image-button" type="button" data-image="./images/vr5.png" data-caption="VR learning research scene 5"><img src="./images/vr5.png" loading="lazy" alt="VR learning research scene 5" /></button>
+</div>
+<ul class="tag-list"><li>Unity</li><li>Oculus VR</li><li>Education technology</li></ul>
+</article>
+</li>
+
+</ol>
+</div>
+</section>
+
+</main>
+
+<dialog class="image-modal" aria-label="Expanded project image">
+<button class="modal-close" type="button" aria-label="Close image">&times;</button>
+<img class="modal-image" alt="" />
+<p class="modal-caption"></p>
+</dialog>
+
+<script src="./script.js"></script>
+</body>
+</html>

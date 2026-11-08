@@ -3,15 +3,15 @@
 <head>
 <meta charset="utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
-<title>Elvis Amaya | Portfolio</title>
+<title>Elvis Amaya</title>
 <meta
 name="description"
-content="Portfolio site for Elvis Amaya featuring software, hardware, and research projects."
+content="Elvis Amaya, EECS student at Stanford working on digital hardware, computer architecture, AI accelerators, and embedded systems."
 />
 <link rel="preconnect" href="https://fonts.googleapis.com" />
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
 <link
-href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@300;400;600;700;800&family=Saira+Extra+Condensed:wght@400;500;600;700;800&display=swap"
+href="https://fonts.googleapis.com/css2?family=Hanken+Grotesk:wght@400;500;600;700&family=JetBrains+Mono:wght@400&display=swap"
 rel="stylesheet"
 />
 <link
@@ -23,489 +23,139 @@ referrerpolicy="no-referrer"
 <link rel="stylesheet" href="./styles.css" />
 </head>
 <body>
-<button
-class="mobile-nav-toggle"
-type="button"
-aria-expanded="false"
-aria-controls="site-nav"
-aria-label="Toggle navigation"
->
-<span></span>
-<span></span>
-<span></span>
+<button class="mobile-nav-toggle" type="button" aria-expanded="false" aria-controls="site-nav" aria-label="Toggle navigation">
+<span></span><span></span><span></span>
 </button>
 
 <aside class="sidebar">
-<a class="brand" href="#about" aria-label="Go to top">
-<img
-class="profile-image"
-src="https://elvisamaya.com/images/elvis.jpg"
-alt="Portrait of Elvis Amaya"
-/>
+<a class="brand" href="./index.html" aria-label="Home">
+<img class="profile-image" src="./images/elvis-profile.jpg" alt="Portrait of Elvis Amaya" />
 <span class="brand-name">Elvis Amaya</span>
 </a>
 <nav class="site-nav" id="site-nav" aria-label="Primary">
-<a href="#architecture">Digital Hardware</a>
-<a href="#hardware">Embedded Systems</a>
-<a href="#software">Software</a>
-<a href="#research">Research</a>
-<a href="#goals">About</a>
-<a href="#contact">Contact</a>
+<a href="./index.html" aria-current="page">About</a>
+<a href="./experience.html">Experience</a>
+<a href="./projects.html">Projects</a>
+<a href="./index.html#contact">Contact</a>
 </nav>
+<div class="sidebar-socials">
+<a href="https://github.com/elvisamaya" target="_blank" rel="noreferrer" aria-label="GitHub"><i class="fa-brands fa-github"></i></a>
+<a href="https://www.linkedin.com/in/elvissebamaya" target="_blank" rel="noreferrer" aria-label="LinkedIn"><i class="fa-brands fa-linkedin-in"></i></a>
+<a href="mailto:esamaya@stanford.edu" aria-label="Email"><i class="fa-solid fa-envelope"></i></a>
+</div>
 </aside>
 
 <main class="page">
 
-<section class="resume-section intro" id="about">
-<div class="section-inner">
-<h1>
-Elvis <span>Amaya</span>
-</h1>
-<p class="subheading">Electrical engineering student at Stanford University.</p>
+<section class="section hero" id="about">
+<div class="section-inner hero-grid">
+<div>
+<p class="eyebrow hero-eyebrow"><span class="dot" aria-hidden="true"></span>EECS @ Stanford</p>
+<h1>Elvis Amaya</h1>
+
+<p class="lead">
+I'm a third-year electrical engineering and computer science student at Stanford interested in
+<strong>digital hardware</strong>, <strong>computer architecture</strong>, and
+<strong>AI accelerators</strong>, the chips that decide how fast and how efficiently software
+can actually run. I especially enjoy processor pipelines, hardware for machine learning,
+verification, and carrying a design from RTL all the way down to a physical layout.
+</p>
+
+<div class="prose">
+<p>
+I'm just as drawn to the place where hardware meets the physical world: embedded firmware,
+real-time systems, and sensing, like measuring a heartbeat from a meter away with mmWave radar.
+I like understanding a system at every level, from the signal on a wire to the software
+that depends on it.
+</p>
+<p>
+Beyond engineering, I care about making technology and STEM education more engaging and
+accessible, especially for students from low-income communities. As a first-generation
+college student, that's personal to me.
+</p>
+<p>
+Recently I've built a <a href="https://github.com/elvisamaya/systolic-accelerator" target="_blank" rel="noreferrer">systolic-array AI accelerator</a>
+taken through place-and-route on SkyWater 130nm, a
+<a href="https://github.com/elvisamaya/processor" target="_blank" rel="noreferrer">pipelined RISC-V processor</a>,
+and a <a href="./projects.html#embedded">contactless vital-sign monitor</a>. Previously, I did
+virtual-reality education research in the
+<a href="./experience.html">Networked Systems Lab at USC</a>.
+</p>
+</div>
+
+<ul class="interest-list" aria-label="Interests">
+<li>Computer architecture</li>
+<li>RTL design &amp; verification</li>
+<li>AI hardware</li>
+<li>Physical design</li>
+<li>Embedded systems</li>
+<li>Signal processing</li>
+</ul>
+
 <div class="hero-actions">
-<a class="action-link primary" href="#architecture">View selected projects</a>
-<a class="action-link" href="https://github.com/elvisamaya" target="_blank" rel="noreferrer">GitHub</a>
-<a
-class="action-link"
-href="https://www.linkedin.com/in/elvissebamaya"
-target="_blank"
-rel="noreferrer"
->
-LinkedIn
-</a>
-<a class="action-link" href="mailto:esamaya@stanford.edu">
-Contact Me
-</a>
+<a class="action-link primary" href="./projects.html">View projects <i class="fa-solid fa-arrow-right"></i></a>
+<a class="action-link" href="./experience.html">Experience</a>
+<a class="action-link" href="https://github.com/elvisamaya" target="_blank" rel="noreferrer"><i class="fa-brands fa-github"></i> GitHub</a>
 </div>
 </div>
-</section>
 
-<section class="resume-section" id="architecture">
-<div class="section-inner">
-<h2>Digital Hardware &amp; Architecture</h2>
-<div class="project-list">
-
-<article class="project-item">
-<h3>Pipelined RISC-V Processor</h3>
-<p>I built single-cycle and five-stage RV32I cores in Verilog to compare how pipeline hazards affect performance. The pipelined core forwards ALU results, stalls on load-use dependencies, and flushes younger instructions on taken branches.</p>
-<p><strong>28% lower simulated CPI with forwarding</strong> on the included workloads (1.924 to 1.380). The testbench checks final registers, data memory, and retired instruction counts against a Python reference model.</p>
-<p class="pipeline-stages"><strong>Pipeline stages</strong> · Fetch → Decode → Execute → Memory → Write-back</p>
-<a class="project-link" href="https://github.com/elvisamaya/processor" target="_blank" rel="noreferrer">
-<i class="fa-brands fa-github" aria-hidden="true"></i> View Pipelined RISC-V Processor on GitHub
-</a>
-</article>
-
-<article class="project-item">
-<h3>Digital Design RTL</h3>
-<p>I designed and verified a set of synthesizable Verilog blocks, including a UART, SPI master, and synchronous FIFO. The UART echo top connects the receiver, FIFO, and transmitter into one serial datapath.</p>
-<p><strong>Six self-checking testbenches</strong> cover cases such as randomized FIFO traffic, UART framing errors, SPI edge timing, and end-to-end echo. CI runs Icarus Verilog simulations and Verilator lint.</p>
-<figure class="rtl-waveform">
-<button class="project-image-button" type="button" data-image="./images/uart_echo_wave.png" data-caption="UART echo simulation showing receive, FIFO write, and transmit timing">
-<img src="./images/uart_echo_wave.png" loading="lazy" alt="UART echo timing waveforms for received data, FIFO writes, and serial transmission" />
-</button>
-<figcaption>UART echo simulation. The receiver decodes 0x48, queues it in the FIFO, and the transmitter sends it back.</figcaption>
+<figure class="hero-figure">
+<div class="array-card" id="array-card">
+<svg class="array-svg" viewBox="0 0 300 300" role="img" aria-labelledby="array-title">
+<title id="array-title">Animation of a 3 by 3 systolic array: data flows right and down through processing elements</title>
+<!-- wires -->
+<g class="wire">
+<line x1="10" y1="70" x2="290" y2="70" /><line x1="10" y1="150" x2="290" y2="150" /><line x1="10" y1="230" x2="290" y2="230" />
+<line x1="70" y1="10" x2="70" y2="290" /><line x1="150" y1="10" x2="150" y2="290" /><line x1="230" y1="10" x2="230" y2="290" />
+</g>
+<!-- operands: A flows right (row i starts i steps late), B flows down (column j starts j steps late) -->
+<circle class="pulse-a" cx="20" cy="70" r="4" style="animation-delay:0s" />
+<circle class="pulse-a" cx="20" cy="150" r="4" style="animation-delay:1.07s" />
+<circle class="pulse-a" cx="20" cy="230" r="4" style="animation-delay:2.13s" />
+<circle class="pulse-b" cx="70" cy="20" r="4" style="animation-delay:0s" />
+<circle class="pulse-b" cx="150" cy="20" r="4" style="animation-delay:1.07s" />
+<circle class="pulse-b" cx="230" cy="20" r="4" style="animation-delay:2.13s" />
+<!-- processing elements -->
+<g>
+<rect class="pe" x="48" y="48" width="44" height="44" rx="9" /><rect class="pe-glow" x="48" y="48" width="44" height="44" rx="9" style="animation-delay:-0.93s" />
+<rect class="pe" x="128" y="48" width="44" height="44" rx="9" /><rect class="pe-glow" x="128" y="48" width="44" height="44" rx="9" style="animation-delay:0.14s" />
+<rect class="pe" x="208" y="48" width="44" height="44" rx="9" /><rect class="pe-glow" x="208" y="48" width="44" height="44" rx="9" style="animation-delay:1.2s" />
+<rect class="pe" x="48" y="128" width="44" height="44" rx="9" /><rect class="pe-glow" x="48" y="128" width="44" height="44" rx="9" style="animation-delay:0.14s" />
+<rect class="pe" x="128" y="128" width="44" height="44" rx="9" /><rect class="pe-glow" x="128" y="128" width="44" height="44" rx="9" style="animation-delay:1.2s" />
+<rect class="pe" x="208" y="128" width="44" height="44" rx="9" /><rect class="pe-glow" x="208" y="128" width="44" height="44" rx="9" style="animation-delay:2.27s" />
+<rect class="pe" x="48" y="208" width="44" height="44" rx="9" /><rect class="pe-glow" x="48" y="208" width="44" height="44" rx="9" style="animation-delay:1.2s" />
+<rect class="pe" x="128" y="208" width="44" height="44" rx="9" /><rect class="pe-glow" x="128" y="208" width="44" height="44" rx="9" style="animation-delay:2.27s" />
+<rect class="pe" x="208" y="208" width="44" height="44" rx="9" /><rect class="pe-glow" x="208" y="208" width="44" height="44" rx="9" style="animation-delay:0.13s" />
+</g>
+<text class="label" x="58" y="75">MAC</text><text class="label" x="138" y="75">MAC</text><text class="label" x="218" y="75">MAC</text>
+<text class="label" x="58" y="155">MAC</text><text class="label" x="138" y="155">MAC</text><text class="label" x="218" y="155">MAC</text>
+<text class="label" x="58" y="235">MAC</text><text class="label" x="138" y="235">MAC</text><text class="label" x="218" y="235">MAC</text>
+</svg>
+</div>
+<figcaption class="figure-caption">
+<span>A systolic array, like the one I built: operands flow right and down, and each cell multiplies and accumulates.</span>
+<button class="pause-button" type="button" aria-pressed="false" aria-label="Pause animation">&#10074;&#10074;</button>
+</figcaption>
 </figure>
-<a class="project-link" href="https://github.com/elvisamaya/digital-design-rtl" target="_blank" rel="noreferrer">
-<i class="fa-brands fa-github" aria-hidden="true"></i> View Digital Design RTL on GitHub
-</a>
-</article>
-
-</div>
 </div>
 </section>
 
-<section class="resume-section" id="hardware">
-<div class="section-inner">
-<h2>Embedded Systems &amp; Signal Processing</h2>
-<div class="project-list">
-
-<article class="project-item">
-<h3>Vital Sign Monitoring with mmWave Radar</h3>
-<p>
-A contactless heart rate and respiration monitoring system built
-with a 77 GHz FMCW mmWave radar (TI IWR6843ISK). Instead of
-wearable or contact sensors like PPG, it measures sub-millimeter
-chest displacement from the phase of the radar signal.
-</p>
-<p>
-I derived and implemented the full signal processing pipeline
-(range-FFT, DC offset correction, phase extraction and unwrapping,
-and slow-time FFT) and designed the chirp parameters to reach under
-0.1 Hz frequency resolution, enough to separate breathing
-(0.2&ndash;0.5 Hz) from heart rate (1&ndash;1.6 Hz). Across multiple
-trials, the system reliably detected respiratory rate (14&ndash;19 bpm)
-and heart rate (61&ndash;80 bpm) from 1 m away. Stanford University,
-May&ndash;June 2026.
-</p>
-<div class="project-images plots">
-<button
-class="project-image-button photo"
-type="button"
-data-image="https://elvisamaya.com/images/radar_setup.jpg"
-data-caption="mmWave Radar Test Setup"
->
-<img
-src="https://elvisamaya.com/images/radar_setup.jpg"
-alt="mmWave Radar Test Setup"
-/>
-</button>
-<button
-class="project-image-button"
-type="button"
-data-image="https://elvisamaya.com/images/radar1.png"
-data-caption="Raw Displacement per RX"
->
-<img
-src="https://elvisamaya.com/images/radar1.png"
-alt="Raw Displacement per RX"
-/>
-</button>
-<button
-class="project-image-button"
-type="button"
-data-image="https://elvisamaya.com/images/radar2.png"
-data-caption="Breathing-Band Chest Motion"
->
-<img
-src="https://elvisamaya.com/images/radar2.png"
-alt="Breathing-Band Chest Motion"
-/>
-</button>
-<button
-class="project-image-button"
-type="button"
-data-image="https://elvisamaya.com/images/radar3.png"
-data-caption="Heart-Band Chest Motion"
->
-<img
-src="https://elvisamaya.com/images/radar3.png"
-alt="Heart-Band Chest Motion"
-/>
-</button>
-</div>
-</article>
-
-<article class="project-item">
-<h3>RTOS Task Scheduler</h3>
-<p>
-A multitasking embedded firmware system built on an STM32 Nucleo
-board using FreeRTOS. The system runs concurrent tasks for sensor
-polling, motor control, status LEDs, and a UART command shell —
-all coordinated through task priorities, preemption, queue-based
-messaging, and mutex-protected output.
-</p>
-<p>
-Commands like <code>motor open</code>, <code>led on</code>, and
-<code>status</code> can be issued live over serial. Hardware
-includes the STM32 NUCLEO-F446RE, an SG90 servo, and an external
-5V supply. Firmware written in C.
-</p>
-<a
-class="project-link"
-href="https://github.com/elvisamaya/RTOS-Task-Scheduler"
-target="_blank"
-rel="noreferrer"
->
-<i class="fa-brands fa-github"></i> View on GitHub
-</a>
-</article>
-
-<article class="project-item">
-<h3>Butter Bot</h3>
-<p>
-An autonomous mini forklift inspired by the Butter Robot from
-<em>Rick and Morty</em>. The robot uses a camera to find a stick of
-butter, slides its forks under a small pallet, lifts it, and
-delivers it to a red drop-off marker.
-</p>
-<p>
-An STM32 Nucleo-L4R5ZI-P runs the robot as an interrupt-driven
-state machine. It receives butter and marker positions from a XIAO
-ESP32S3 Sense camera over UART, reads heading from an LSM303AGR
-magnetometer over I2C, and drives two DC gearmotors and an SG92R
-servo with timer PWM. The 25-part 3D-printed body includes a
-parallel-link forklift that lifts the forks 30 mm while keeping
-them level. In progress, Fall 2026.
-</p>
-<div class="project-images">
-<button
-class="project-image-button"
-type="button"
-data-image="https://elvisamaya.com/images/butterbot1.jpg"
-data-caption="Butter Bot 3D Model"
->
-<img
-src="https://elvisamaya.com/images/butterbot1.jpg"
-alt="Butter Bot 3D Model"
-/>
-</button>
-<button
-class="project-image-button"
-type="button"
-data-image="https://elvisamaya.com/images/butterbot2.jpg"
-data-caption="Butter Bot Forks Raised"
->
-<img
-src="https://elvisamaya.com/images/butterbot2.jpg"
-alt="Butter Bot Forks Raised"
-/>
-</button>
-<button
-class="project-image-button"
-type="button"
-data-image="https://elvisamaya.com/images/butterbot3.jpg"
-data-caption="Butter Bot Forklift Detail"
->
-<img
-src="https://elvisamaya.com/images/butterbot3.jpg"
-alt="Butter Bot Forklift Detail"
-/>
-</button>
-<button
-class="project-image-button"
-type="button"
-data-image="https://elvisamaya.com/images/butterbot4.jpg"
-data-caption="Butter Bot Exploded View"
->
-<img
-src="https://elvisamaya.com/images/butterbot4.jpg"
-alt="Butter Bot Exploded View"
-/>
-</button>
-</div>
-</article>
-
-</div>
-</div>
-</section>
-
-<section class="resume-section" id="software">
-<div class="section-inner">
-<h2>Software</h2>
-<div class="project-list">
-
-<article class="project-item">
-<h3>Mini LLM</h3>
-<p>I implemented a character-level transformer in PyTorch. Its attention heads use a causal mask so each position only attends to itself and earlier characters. The command-line interface trains on a text file and samples from a saved checkpoint.</p>
-<a class="project-link" href="https://github.com/elvisamaya/mini_llm" target="_blank" rel="noreferrer">
-<i class="fa-brands fa-github" aria-hidden="true"></i> View Mini LLM on GitHub
-</a>
-</article>
-
-<article class="project-item">
-<h3>AstroML Journey</h3>
-<p>I built a React and Vite app that teaches machine learning through six space-themed lessons. React state tracks quiz answers and completed missions, and the stage selector uses that state to unlock the next world after a correct answer.</p>
-<a class="project-link" href="https://github.com/elvisamaya/nova-ML" target="_blank" rel="noreferrer">
-<i class="fa-brands fa-github" aria-hidden="true"></i> View AstroML Journey on GitHub
-</a>
-</article>
-
-<article class="project-item">
-<h3>Image Classifier</h3>
-<p>A small PyTorch CNN trained from scratch on CIFAR-10 with data augmentation, batch normalization, and dropout.</p>
-<a class="project-link" href="https://github.com/elvisamaya/image-classifier" target="_blank" rel="noreferrer">
-<i class="fa-brands fa-github" aria-hidden="true"></i> View Image Classifier on GitHub
-</a>
-</article>
-
-<article class="project-item">
-<h3>tela</h3>
-<p>A browser-based wardrobe prototype that saves clothing and outfit posts in local storage and suggests combinations from past outfits.</p>
-<a class="project-link" href="https://github.com/elvisamaya/tela" target="_blank" rel="noreferrer">
-<i class="fa-brands fa-github" aria-hidden="true"></i> View tela on GitHub
-</a>
-</article>
-
-</div>
-</div>
-</section>
-
-<section class="resume-section" id="research">
-<div class="section-inner">
-<h2>Research</h2>
-<div class="project-list">
-
-<article class="project-item">
-<h3>VR Learning Research</h3>
-<p>
-As a part of the Networked Systems Lab in USC's Viterbi School
-of Engineering, I collaborated with professor Ramesh Govindan
-and Ph.D. student Rajrup Ghosh to explore the intersection of
-technology, history, and education.
-</p>
-<p>
-By using Unity, an Oculus virtual reality headset, and a
-computer, I constructed historical scenes within virtual
-reality so teachers and students could immerse themselves in the
-history of the U.S.
-</p>
-<div class="project-images">
-<button
-class="project-image-button"
-type="button"
-data-image="https://elvisamaya.com/images/vr1.png"
-data-caption="VR Learning Research Scene 1"
->
-<img
-src="https://elvisamaya.com/images/vr1.png"
-alt="VR Learning Research Scene 1"
-/>
-</button>
-<button
-class="project-image-button"
-type="button"
-data-image="https://elvisamaya.com/images/vr2.png"
-data-caption="VR Learning Research Scene 2"
->
-<img
-src="https://elvisamaya.com/images/vr2.png"
-alt="VR Learning Research Scene 2"
-/>
-</button>
-<button
-class="project-image-button"
-type="button"
-data-image="https://elvisamaya.com/images/vr3.png"
-data-caption="VR Learning Research Scene 3"
->
-<img
-src="https://elvisamaya.com/images/vr3.png"
-alt="VR Learning Research Scene 3"
-/>
-</button>
-<button
-class="project-image-button"
-type="button"
-data-image="https://elvisamaya.com/images/vr4.png"
-data-caption="VR Learning Research Scene 4"
->
-<img
-src="https://elvisamaya.com/images/vr4.png"
-alt="VR Learning Research Scene 4"
-/>
-</button>
-<button
-class="project-image-button"
-type="button"
-data-image="https://elvisamaya.com/images/vr5.png"
-data-caption="VR Learning Research Scene 5"
->
-<img
-src="https://elvisamaya.com/images/vr5.png"
-alt="VR Learning Research Scene 5"
-/>
-</button>
-</div>
-</article>
-
-</div>
-</div>
-</section>
-
-<section class="resume-section" id="more-projects">
-<div class="section-inner">
-<h2>More Projects</h2>
-<div class="project-list">
-
-<article class="project-item">
-<h3>Automatic Feeder Prototype</h3>
-<p>An Arduino feeder that uses a PIR interrupt to trigger a motor and logs events over serial.</p>
-<a class="project-link" href="https://github.com/elvisamaya/wildlife-feeder" target="_blank" rel="noreferrer">
-<i class="fa-brands fa-github" aria-hidden="true"></i> View Automatic Feeder Prototype on GitHub
-</a>
-</article>
-
-<article class="project-item">
-<h3>Solar-Powered Charger</h3>
-<p>A solar-powered USB charger prototype with a LiPo battery and a DC-DC boost converter.</p>
-</article>
-
-<article class="project-item">
-<h3>Useless Box</h3>
-<p>A motorized box that flips its own switch off using a mechanical lever and a limit switch.</p>
-</article>
-
-<article class="project-item">
-<h3>Stock Market Simulator</h3>
-<p>A single-page browser simulator for practicing stock trades.</p>
-<a class="project-link" href="https://github.com/elvisamaya/stock-simulator" target="_blank" rel="noreferrer">
-<i class="fa-brands fa-github" aria-hidden="true"></i> View Stock Market Simulator on GitHub
-</a>
-</article>
-
-<article class="project-item">
-<h3>BFS &amp; DFS Algorithms</h3>
-<p>A Python curses demo that animates breadth-first and depth-first maze traversal.</p>
-<a class="project-link" href="https://github.com/elvisamaya/bfs-algorithm" target="_blank" rel="noreferrer">
-<i class="fa-brands fa-github" aria-hidden="true"></i> View BFS &amp; DFS Algorithms on GitHub
-</a>
-</article>
-
-<article class="project-item">
-<h3>Turtle Graphics</h3>
-<p>A Python turtle racing game with randomized movement and obstacles.</p>
-<a class="project-link" href="https://github.com/elvisamaya/racers" target="_blank" rel="noreferrer">
-<i class="fa-brands fa-github" aria-hidden="true"></i> View Turtle Graphics on GitHub
-</a>
-</article>
-
-</div>
-</div>
-</section>
-
-<section class="resume-section" id="goals">
-<div class="section-inner">
-<h2>About Me</h2>
-<div class="callout">
-<p>I’m a first-generation student studying electrical engineering and computer science at Stanford. I want to use technology to make learning more engaging and accessible for students from low-income communities.</p>
-</div>
-</div>
-</section>
-
-<section class="resume-section contact-section" id="contact">
+<section class="section contact-section" id="contact">
 <div class="section-inner">
 <h2>Contact</h2>
-<p class="lead contact-copy">
-If you'd like to connect, collaborate, or learn more about my work,
-you can reach me through email, GitHub, or LinkedIn.
+<p class="page-intro">
+If you'd like to connect, collaborate, or talk about hardware, I'd love to hear from you.
 </p>
 <div class="contact-links">
-<a class="contact-card" href="mailto:esamaya@stanford.edu">
-<i class="fa-solid fa-envelope"></i>
-<span>esamaya@stanford.edu</span>
-</a>
-<a
-class="contact-card"
-href="https://github.com/elvisamaya?tab=repositories"
-target="_blank"
-rel="noreferrer"
->
-<i class="fa-brands fa-github"></i>
-<span>github.com/elvisamaya</span>
-</a>
-<a
-class="contact-card"
-href="https://www.linkedin.com/in/elvissebamaya"
-target="_blank"
-rel="noreferrer"
->
-<i class="fa-brands fa-linkedin-in"></i>
-<span>linkedin.com/in/elvissebamaya</span>
-</a>
+<a class="contact-card" href="mailto:esamaya@stanford.edu"><i class="fa-solid fa-envelope"></i><span>esamaya@stanford.edu</span></a>
+<a class="contact-card" href="https://github.com/elvisamaya" target="_blank" rel="noreferrer"><i class="fa-brands fa-github"></i><span>github.com/elvisamaya</span></a>
+<a class="contact-card" href="https://www.linkedin.com/in/elvissebamaya" target="_blank" rel="noreferrer"><i class="fa-brands fa-linkedin-in"></i><span>linkedin.com/in/elvissebamaya</span></a>
 </div>
-<p class="copyright">© 2026 Elvis Amaya. All rights reserved.</p>
+<p class="copyright">© 2026 Elvis Amaya</p>
 </div>
 </section>
 
 </main>
-
-<dialog class="image-modal" aria-label="Expanded project image">
-<button class="modal-close" type="button" aria-label="Close image">
-&times;
-</button>
-<img class="modal-image" alt="" />
-<p class="modal-caption"></p>
-</dialog>
 
 <script src="./script.js"></script>
 </body>
