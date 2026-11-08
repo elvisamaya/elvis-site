@@ -20,7 +20,10 @@ href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css"
 crossorigin="anonymous"
 referrerpolicy="no-referrer"
 />
-<link rel="stylesheet" href="./styles.css" />
+<link rel="icon" href="./favicon.svg" type="image/svg+xml" />
+<link rel="icon" href="./favicon.ico" sizes="any" />
+<link rel="apple-touch-icon" href="./apple-touch-icon.png" />
+<link rel="stylesheet" href="./styles.css?v=5" />
 </head>
 <body>
 <button class="mobile-nav-toggle" type="button" aria-expanded="false" aria-controls="site-nav" aria-label="Toggle navigation">
@@ -48,65 +51,56 @@ referrerpolicy="no-referrer"
 <main class="page">
 
 <section class="section home" id="about">
-<div class="section-inner">
+<div class="section-inner home-grid">
 
-<header class="home-header">
+<div class="home-text">
 <h1 class="hero-name">Elvis <span class="last">Amaya</span></h1>
 <p class="headline">I design digital hardware, from RTL to chip layout.</p>
-</header>
 
-<div class="about-grid">
-<div class="about-card">
-<h2 class="card-label">About</h2>
-<p>
-Third-year EECS student at Stanford focused on <strong>computer architecture</strong>,
-<strong>AI accelerators</strong>, and <strong>embedded systems</strong>. As a first-generation
-student, I also care about making STEM more accessible.
+<p class="lead">
+I'm a third-year electrical engineering and computer science student at Stanford, interested in
+<strong>computer architecture</strong>, <strong>AI accelerators</strong>, and
+<strong>embedded systems</strong>. I enjoy understanding a system at every level, and carrying a
+design from RTL all the way down to a physical chip layout.
 </p>
+
+<div class="prose">
+<p>
+I'm just as drawn to hardware that meets the physical world, like real-time firmware and
+sensing (one of my projects measures a heartbeat from a meter away with radar). Outside of
+engineering, I care about making STEM more engaging and accessible for students from
+low-income communities, something personal to me as a first-generation college student.
+</p>
+<p>
+Lately I've built a <a href="https://github.com/elvisamaya/systolic-accelerator" target="_blank" rel="noreferrer">systolic-array AI accelerator</a>
+and a <a href="https://github.com/elvisamaya/processor" target="_blank" rel="noreferrer">pipelined RISC-V processor</a>.
+I've also taught as a CS course assistant at Stanford and done VR education research at
+Stanford and USC.
+</p>
+</div>
+
 <div class="hero-actions">
-<a class="action-link primary" href="./projects.html">Projects <i class="fa-solid fa-arrow-right"></i></a>
+<a class="action-link primary" href="./projects.html">View projects <i class="fa-solid fa-arrow-right"></i></a>
 <a class="action-link" href="./experience.html">Experience</a>
 <a class="action-link" href="https://github.com/elvisamaya" target="_blank" rel="noreferrer"><i class="fa-brands fa-github"></i> GitHub</a>
 </div>
 </div>
 
-<div class="about-card">
-<h2 class="card-label">Focus areas</h2>
-<ul class="focus-list">
-<li><i class="fa-solid fa-microchip"></i><span>Computer architecture &amp; RTL design</span></li>
-<li><i class="fa-solid fa-brain"></i><span>Hardware for machine learning</span></li>
-<li><i class="fa-solid fa-layer-group"></i><span>Verification &amp; physical design</span></li>
-<li><i class="fa-solid fa-satellite-dish"></i><span>Embedded systems &amp; sensing</span></li>
-</ul>
-</div>
-</div>
-
-<h2 class="card-label featured-label">Featured work</h2>
-<div class="featured-grid">
-<a class="feature-card" href="./projects.html#digital">
-<img src="./images/accel_layout.jpg" alt="Chip layout of the systolic-array accelerator" loading="lazy" />
-<div class="feature-body">
-<h3>Systolic-array AI accelerator</h3>
-<p><b>87.6×</b> faster than the CPU · SkyWater 130nm layout</p>
-</div>
+<aside class="selected-work" aria-label="Selected work">
+<h2 class="card-label">Selected work</h2>
+<a class="work-row" href="./projects.html#digital">
+<img src="./images/accel_layout.jpg" alt="" loading="lazy" />
+<span><b>AI accelerator</b><small>87.6× faster · 130nm chip layout</small></span>
 </a>
-<a class="feature-card" href="./projects.html#digital">
-<div class="pipeline-visual" aria-hidden="true">
-<span>IF</span><span>ID</span><span>EX</span><span>MEM</span><span>WB</span>
-</div>
-<div class="feature-body">
-<h3>Pipelined RISC-V processor</h3>
-<p><b>28%</b> lower CPI with forwarding</p>
-</div>
+<a class="work-row" href="./projects.html#digital">
+<span class="work-thumb mono" aria-hidden="true">IF·ID<br />EX·WB</span>
+<span><b>RISC-V processor</b><small>5-stage pipeline · 28% lower CPI</small></span>
 </a>
-<a class="feature-card" href="./projects.html#embedded">
-<img src="./images/radar2.png" alt="Breathing signal measured by radar" loading="lazy" class="contain" />
-<div class="feature-body">
-<h3>mmWave vital-sign monitor</h3>
-<p>Heart rate from <b>1 m</b> away, no contact</p>
-</div>
+<a class="work-row" href="./projects.html#embedded">
+<img class="contain" src="./images/radar2.png" alt="" loading="lazy" />
+<span><b>mmWave vital signs</b><small>Heart rate from 1 m, no contact</small></span>
 </a>
-</div>
+</aside>
 
 </div>
 </section>
@@ -128,6 +122,6 @@ If you'd like to connect, collaborate, or talk about hardware, I'd love to hear 
 
 </main>
 
-<script src="./script.js"></script>
+<script src="./script.js?v=5"></script>
 </body>
 </html>
