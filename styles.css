@@ -1177,6 +1177,7 @@ h3 {
 .v-fmap { fill: rgba(76, 154, 255, 0.12); stroke: rgba(76, 154, 255, 0.6); }
 .v-bar { fill: #3a4a5e; transform-box: fill-box; transform-origin: left; animation: v-grow 4s ease-out infinite; }
 .v-bar.top { fill: var(--accent); }
+.v-bar.ref { fill: rgba(76, 154, 255, 0.08); stroke: var(--muted); stroke-dasharray: 3 3; }
 
 /* astro */
 .v-path { fill: none; stroke: #2c3a4d; stroke-width: 2; stroke-dasharray: 5 5; }

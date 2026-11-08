@@ -20,7 +20,7 @@ referrerpolicy="no-referrer"
 <link rel="icon" href="./favicon.svg" type="image/svg+xml" />
 <link rel="icon" href="./favicon.ico" sizes="any" />
 <link rel="apple-touch-icon" href="./apple-touch-icon.png" />
-<link rel="stylesheet" href="./styles.css?v=9" />
+<link rel="stylesheet" href="./styles.css?v=10" />
 </head>
 <body>
 <button class="mobile-nav-toggle" type="button" aria-expanded="false" aria-controls="site-nav" aria-label="Toggle navigation">
@@ -58,7 +58,7 @@ From chip layout to firmware to machine learning.
 </section>
 
 <div class="tabs" role="tablist" aria-label="Project categories">
-<button class="tab" role="tab" id="tab-digital" aria-controls="digital" aria-selected="true">Digital Hardware<span class="tab-count">3</span></button>
+<button class="tab" role="tab" id="tab-digital" aria-controls="digital" aria-selected="true">Digital Hardware<span class="tab-count">4</span></button>
 <button class="tab" role="tab" id="tab-embedded" aria-controls="embedded" aria-selected="false">Embedded Systems<span class="tab-count">6</span></button>
 <button class="tab" role="tab" id="tab-software" aria-controls="software" aria-selected="false">Software<span class="tab-count">7</span></button>
 </div>
@@ -68,7 +68,7 @@ From chip layout to firmware to machine learning.
 <div class="section-inner">
 <p class="panel-intro">
 RTL design in Verilog, verification against independent reference models, computer architecture,
-and taking designs through synthesis and physical layout.
+GPU programming, and taking designs through synthesis and physical layout.
 </p>
 <div class="project-list">
 
@@ -92,6 +92,57 @@ and taking designs through synthesis and physical layout.
 <div class="stat"><b>0 / 0</b><span>DRC / LVS errors</span></div>
 </div>
 <a class="project-link" href="https://github.com/elvisamaya/systolic-accelerator" target="_blank" rel="noreferrer"><i class="fa-brands fa-github"></i> View on GitHub</a>
+</article>
+
+<article class="project-item">
+<h3>int8 GEMM Kernels in CUDA</h3>
+<p class="project-meta">CUDA C++ · Tensor Cores (WMMA) · cuBLAS · Nsight Compute · Python</p>
+<div class="split-figure viz-split">
+<div>
+<p>The int8 matrix multiply at the heart of quantized neural networks, written seven ways on the GPU. Each version fixes the previous one's bottleneck: memory coalescing, shared-memory and register tiling, packed <code>dp4a</code> instructions, and finally tensor cores.</p>
+<p>Every kernel is checked exactly against a CPU reference at every size, and benchmarked on an NVIDIA T4 with a roofline analysis. It pairs with my accelerator: tensor cores are systolic arrays inside the GPU, and both designs come down to keeping the multipliers fed.</p>
+</div>
+<figure class="viz ">
+<svg viewBox="0 0 372 200" role="img" aria-label="Throughput of seven int8 matrix-multiply kernels on a T4 GPU, log scale, from 0.06 to 44 TOPS">
+<text class="v-label" x="92" y="14">TOPS, log scale</text>
+<line class="v-grid" x1="127.2" y1="20" x2="127.2" y2="191" />
+<text class="v-label" x="127.2" y="196" text-anchor="middle">0.1</text>
+<line class="v-grid" x1="194.4" y1="20" x2="194.4" y2="191" />
+<text class="v-label" x="194.4" y="196" text-anchor="middle">1</text>
+<line class="v-grid" x1="261.7" y1="20" x2="261.7" y2="191" />
+<text class="v-label" x="261.7" y="196" text-anchor="middle">10</text>
+<text class="v-mono" x="84" y="38" text-anchor="end">naive</text>
+<rect class="v-bar" x="92" y="26" width="20.2" height="17" rx="3" style="animation-delay:0.00s" />
+<text class="v-label" x="118.2" y="38">0.06</text>
+<text class="v-mono" x="84" y="62" text-anchor="end">coalesced</text>
+<rect class="v-bar" x="92" y="50" width="94.4" height="17" rx="3" style="animation-delay:0.12s" />
+<text class="v-label" x="192.4" y="62">0.76</text>
+<text class="v-mono" x="84" y="86" text-anchor="end">smem_tiled</text>
+<rect class="v-bar" x="92" y="74" width="95.9" height="17" rx="3" style="animation-delay:0.24s" />
+<text class="v-label" x="193.9" y="86">0.8</text>
+<text class="v-mono" x="84" y="110" text-anchor="end">reg_tiled</text>
+<rect class="v-bar" x="92" y="98" width="132.3" height="17" rx="3" style="animation-delay:0.36s" />
+<text class="v-label" x="230.3" y="110">2.78</text>
+<text class="v-mono" x="84" y="134" text-anchor="end">dp4a</text>
+<rect class="v-bar" x="92" y="122" width="163.4" height="17" rx="3" style="animation-delay:0.48s" />
+<text class="v-label" x="261.4" y="134">8.07</text>
+<text class="v-mono" x="84" y="158" text-anchor="end">tensor_core</text>
+<rect class="v-bar top" x="92" y="146" width="190.4" height="17" rx="3" style="animation-delay:0.60s" />
+<text class="v-label" x="288.4" y="158">20.36</text>
+<text class="v-mono" x="84" y="182" text-anchor="end">cuBLAS</text>
+<rect class="v-bar ref" x="92" y="170" width="213.0" height="17" rx="3" style="animation-delay:0.72s" />
+<text class="v-label" x="311.0" y="182">44.03</text>
+</svg>
+<figcaption>Measured on an NVIDIA T4 at 2048³: each kernel fixes the bottleneck of the one above it. cuBLAS is NVIDIA's library, for reference.</figcaption>
+</figure>
+</div>
+<div class="stat-row">
+<div class="stat"><b>330×</b><span>faster than the naive kernel</span></div>
+<div class="stat"><b>20.4 TOPS</b><span>my tensor-core kernel</span></div>
+<div class="stat"><b>46%</b><span>of NVIDIA cuBLAS</span></div>
+<div class="stat"><b>294×</b><span>faster than the CPU</span></div>
+</div>
+<a class="project-link" href="https://github.com/elvisamaya/int8-gemm-cuda" target="_blank" rel="noreferrer"><i class="fa-brands fa-github"></i> View on GitHub</a>
 </article>
 
 <article class="project-item">
