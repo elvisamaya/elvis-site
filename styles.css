@@ -1,15 +1,15 @@
 :root {
   --sidebar-width: 17rem;
-  --bg: #0b0c10;
-  --bg-raised: #12141a;
-  --bg-card: #14161d;
-  --border: #23262f;
-  --ink: #eceae3;
-  --ink-soft: #c9c8c1;
-  --muted: #8f929b;
-  --accent: #8b7cf6;
-  --accent-soft: rgba(139, 124, 246, 0.16);
-  --good: #4ade80;
+  --bg: #0d1117;
+  --bg-raised: #121821;
+  --bg-card: #141b25;
+  --border: #243040;
+  --ink: #edf1f5;
+  --ink-soft: #c6ced8;
+  --muted: #8a96a6;
+  --accent: #e2894b;
+  --accent-soft: rgba(226, 137, 75, 0.15);
+  --good: #3fc7b4;
   --shadow: 0 24px 60px rgba(0, 0, 0, 0.45);
   --radius: 1.1rem;
 }
@@ -55,8 +55,10 @@ h3 {
 }
 
 h1 {
-  font-size: clamp(3.4rem, 8vw, 6.2rem);
-  letter-spacing: -0.035em;
+  font-family: "Bricolage Grotesque", "Hanken Grotesk", sans-serif;
+  font-size: clamp(2.6rem, 5vw, 3.8rem);
+  font-weight: 800;
+  letter-spacing: -0.03em;
 }
 
 h2 {
@@ -95,7 +97,7 @@ h3 {
   padding: 2.5rem 1.5rem;
   border-right: 1px solid var(--border);
   background:
-    radial-gradient(circle at 50% 0%, rgba(139, 124, 246, 0.14), transparent 45%),
+    radial-gradient(circle at 50% 0%, rgba(226, 137, 75, 0.12), transparent 45%),
     var(--bg-raised);
   flex-direction: column;
   align-items: center;
@@ -112,8 +114,9 @@ h3 {
 }
 
 .brand-name {
+  font-family: "Bricolage Grotesque", "Hanken Grotesk", sans-serif;
   font-size: 1.3rem;
-  font-weight: 700;
+  font-weight: 800;
   letter-spacing: -0.01em;
 }
 
@@ -254,17 +257,34 @@ h3 {
 }
 
 .hero-eyebrow {
-  display: inline-flex;
-  align-items: center;
-  gap: 0.6rem;
+  margin-bottom: 1.1rem;
+  color: var(--accent);
+  font-family: "JetBrains Mono", ui-monospace, monospace;
+  font-size: 0.92rem;
+  letter-spacing: 0.02em;
 }
 
-.hero-eyebrow .dot {
-  width: 0.55rem;
-  height: 0.55rem;
-  border-radius: 50%;
-  background: #8c1515;
-  box-shadow: 0 0 0 4px rgba(140, 21, 21, 0.25);
+.hero-name {
+  margin: 0 0 1.75rem;
+  font-family: "Bricolage Grotesque", "Hanken Grotesk", sans-serif;
+  font-size: clamp(2.8rem, 5.6vw, 4.4rem);
+  font-weight: 800;
+  line-height: 0.95;
+  letter-spacing: -0.03em;
+}
+
+.hero-name .last {
+  color: var(--accent);
+}
+
+.hero-name::after {
+  content: "";
+  display: block;
+  width: 3.5rem;
+  height: 4px;
+  margin-top: 1.4rem;
+  border-radius: 2px;
+  background: linear-gradient(90deg, var(--accent), var(--good));
 }
 
 .lead {
@@ -330,11 +350,11 @@ h3 {
 .action-link.primary {
   border-color: var(--accent);
   background: var(--accent);
-  color: #0b0c10;
+  color: #0d1117;
 }
 
 .action-link.primary:hover {
-  background: #a397f8;
+  background: #eb9f68;
 }
 
 /* ------------------------------------------------------------ hero graphic */
@@ -350,7 +370,7 @@ h3 {
   border: 1px solid var(--border);
   border-radius: 1.6rem;
   background:
-    radial-gradient(circle at 30% 20%, rgba(139, 124, 246, 0.12), transparent 60%),
+    radial-gradient(circle at 30% 20%, rgba(226, 137, 75, 0.10), transparent 60%),
     var(--bg-card);
   box-shadow: var(--shadow);
 }
@@ -460,7 +480,7 @@ h3 {
   gap: 0.5rem;
   padding: 1rem clamp(1.5rem, 5vw, 5rem);
   border-bottom: 1px solid var(--border);
-  background: rgba(11, 12, 16, 0.88);
+  background: rgba(13, 17, 23, 0.88);
   backdrop-filter: blur(10px);
 }
 
@@ -517,9 +537,9 @@ h3 {
 }
 
 .project-item.featured {
-  border-color: rgba(139, 124, 246, 0.45);
+  border-color: rgba(226, 137, 75, 0.45);
   background:
-    linear-gradient(160deg, rgba(139, 124, 246, 0.08), transparent 40%),
+    linear-gradient(160deg, rgba(226, 137, 75, 0.07), transparent 40%),
     var(--bg-card);
 }
 
@@ -914,4 +934,37 @@ h3 {
   .project-image-button img {
     height: auto;
   }
+}
+
+/* ------------------------------------------------------------ experience details */
+.subsection-title:first-child {
+  margin-top: 0;
+}
+
+.bullets {
+  margin: 0 0 0.5rem;
+  padding-left: 1.15rem;
+  color: var(--muted);
+}
+
+.bullets li {
+  margin-bottom: 0.5rem;
+}
+
+.bullets li::marker {
+  color: var(--accent);
+}
+
+.skills-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(16rem, 1fr));
+  gap: 1rem;
+}
+
+.skills-grid h3 {
+  font-size: 1.1rem;
+}
+
+.timeline + .subsection-title {
+  margin-top: 3.5rem;
 }
