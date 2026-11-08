@@ -20,7 +20,7 @@ referrerpolicy="no-referrer"
 <link rel="icon" href="./favicon.svg" type="image/svg+xml" />
 <link rel="icon" href="./favicon.ico" sizes="any" />
 <link rel="apple-touch-icon" href="./apple-touch-icon.png" />
-<link rel="stylesheet" href="./styles.css?v=7" />
+<link rel="stylesheet" href="./styles.css?v=8" />
 </head>
 <body>
 <button class="mobile-nav-toggle" type="button" aria-expanded="false" aria-controls="site-nav" aria-label="Toggle navigation">
@@ -103,7 +103,7 @@ and taking designs through synthesis and physical layout.
 <p>I wrote my own assembler and instruction-set simulator as a golden model. Every program's final registers, memory and instruction count must match it exactly, including thousands of randomly generated instructions.</p>
 </div>
 <figure class="viz ">
-<svg viewBox="0 0 380 190" role="img" aria-label="Pipeline diagram: four instructions overlap across clock cycles">
+<svg viewBox="0 6 372 166" role="img" aria-label="Pipeline diagram: four instructions overlap across clock cycles">
 <text class="v-label" x="126.5" y="20" text-anchor="middle">1</text>
 <text class="v-label" x="158.5" y="20" text-anchor="middle">2</text>
 <text class="v-label" x="190.5" y="20" text-anchor="middle">3</text>
@@ -229,9 +229,10 @@ Firmware, real-time systems, sensors and signal processing: hardware that intera
 <div>
 <p>Multitasking firmware with concurrent tasks for sensor polling, motor control, status LEDs and a UART command shell, coordinated through task priorities, preemption, queue-based messaging and mutex-protected output.</p>
 <p>Commands like <code>motor open</code>, <code>led on</code> and <code>status</code> can be issued live over serial. The hardware is an STM32 NUCLEO-F446RE, an SG90 servo, and an external 5 V supply.</p>
+<a class="project-link" href="https://github.com/elvisamaya/RTOS-Task-Scheduler" target="_blank" rel="noreferrer"><i class="fa-brands fa-github"></i> View on GitHub</a>
 </div>
 <figure class="viz ">
-<svg viewBox="0 0 360 190" role="img" aria-label="Scheduler timeline: tasks take turns on the CPU">
+<svg viewBox="0 16 356 162" role="img" aria-label="Scheduler timeline: tasks take turns on the CPU">
 <text class="v-mono" x="6" y="45">shell</text>
 <line class="v-grid" x1="70" y1="54" x2="350" y2="54" />
 <text class="v-mono" x="6" y="81">motor</text>
@@ -255,7 +256,6 @@ Firmware, real-time systems, sensors and signal processing: hardware that intera
 <figcaption>Tasks preempting each other by priority on one CPU core.</figcaption>
 </figure>
 </div>
-<a class="project-link" href="https://github.com/elvisamaya/RTOS-Task-Scheduler" target="_blank" rel="noreferrer"><i class="fa-brands fa-github"></i> View on GitHub</a>
 </article>
 
 </div>
@@ -307,9 +307,10 @@ Machine learning from scratch, interactive learning tools, and web apps.
 <div class="split-figure viz-split">
 <div>
 <p>A character-level transformer. Its attention heads use a causal mask, so each position only attends to itself and earlier characters. The command-line interface trains on a text file and samples from a saved checkpoint.</p>
+<a class="project-link" href="https://github.com/elvisamaya/mini_llm" target="_blank" rel="noreferrer"><i class="fa-brands fa-github"></i> View on GitHub</a>
 </div>
 <figure class="viz ">
-<svg viewBox="0 0 360 190" role="img" aria-label="Causal attention mask: each character attends only to earlier characters">
+<svg viewBox="14 10 262 168" role="img" aria-label="Causal attention mask: each character attends only to earlier characters">
 <text class="v-mono" x="126" y="26">h</text>
 <text class="v-mono" x="104" y="48">h</text>
 <rect class="v-attn" x="120" y="34" width="17" height="17" rx="3" style="--w:0.25;animation-delay:0.00s" />
@@ -378,7 +379,6 @@ Machine learning from scratch, interactive learning tools, and web apps.
 <figcaption>Each character attends only to itself and earlier ones.</figcaption>
 </figure>
 </div>
-<a class="project-link" href="https://github.com/elvisamaya/mini_llm" target="_blank" rel="noreferrer"><i class="fa-brands fa-github"></i> View on GitHub</a>
 </article>
 
 <article class="project-item">
@@ -387,9 +387,10 @@ Machine learning from scratch, interactive learning tools, and web apps.
 <div class="split-figure viz-split">
 <div>
 <p>An app that teaches machine learning through six space-themed lessons. React state tracks quiz answers and completed missions, and the stage selector unlocks the next world after a correct answer.</p>
+<a class="project-link" href="https://github.com/elvisamaya/nova-ML" target="_blank" rel="noreferrer"><i class="fa-brands fa-github"></i> View on GitHub</a>
 </div>
 <figure class="viz ">
-<svg viewBox="0 0 360 190" role="img" aria-label="Six planets along a path, unlocked one by one">
+<svg viewBox="18 26 334 160" role="img" aria-label="Six planets along a path, unlocked one by one">
 <path class="v-path" d="M 40 140 L 95 70 L 160 125 L 215 55 L 275 115 L 325 50" />
 <circle class="v-planet" cx="40" cy="140" r="11" style="animation-delay:0.00s" />
 <text class="v-label" x="40" y="172" text-anchor="middle">L1</text>
@@ -408,7 +409,6 @@ Machine learning from scratch, interactive learning tools, and web apps.
 <figcaption>Six lessons as worlds; each correct answer unlocks the next.</figcaption>
 </figure>
 </div>
-<a class="project-link" href="https://github.com/elvisamaya/nova-ML" target="_blank" rel="noreferrer"><i class="fa-brands fa-github"></i> View on GitHub</a>
 </article>
 
 <article class="project-item">
@@ -417,9 +417,10 @@ Machine learning from scratch, interactive learning tools, and web apps.
 <div class="split-figure viz-split">
 <div>
 <p>A small CNN trained from scratch on CIFAR-10 with data augmentation, batch normalization and dropout.</p>
+<a class="project-link" href="https://github.com/elvisamaya/image-classifier" target="_blank" rel="noreferrer"><i class="fa-brands fa-github"></i> View on GitHub</a>
 </div>
 <figure class="viz ">
-<svg viewBox="0 0 360 190" role="img" aria-label="Image passes through convolution layers to class scores">
+<svg viewBox="6 26 352 136" role="img" aria-label="Image passes through convolution layers to class scores">
 <rect class="v-pix" x="14" y="48" width="12" height="12" style="opacity:0.43" />
 <rect class="v-pix" x="27" y="48" width="12" height="12" style="opacity:0.33" />
 <rect class="v-pix" x="40" y="48" width="12" height="12" style="opacity:0.55" />
@@ -473,7 +474,6 @@ Machine learning from scratch, interactive learning tools, and web apps.
 <figcaption>Pixels → convolution feature maps → class scores (CIFAR-10).</figcaption>
 </figure>
 </div>
-<a class="project-link" href="https://github.com/elvisamaya/image-classifier" target="_blank" rel="noreferrer"><i class="fa-brands fa-github"></i> View on GitHub</a>
 </article>
 
 <article class="project-item">
@@ -482,9 +482,10 @@ Machine learning from scratch, interactive learning tools, and web apps.
 <div class="split-figure viz-split">
 <div>
 <p>A browser-based wardrobe prototype that saves clothing and outfit posts in local storage and suggests combinations from past outfits.</p>
+<a class="project-link" href="https://github.com/elvisamaya/tela" target="_blank" rel="noreferrer"><i class="fa-brands fa-github"></i> View on GitHub</a>
 </div>
 <figure class="viz ">
-<svg viewBox="0 0 360 190" role="img" aria-label="Wardrobe items combined into a suggested outfit">
+<svg viewBox="22 14 320 174" role="img" aria-label="Wardrobe items combined into a suggested outfit">
 <rect class="v-tile" x="30" y="30" width="58" height="62" rx="10" />
 <path class="v-garment g0" d="M 44 46 L 52 40 L 66 40 L 74 46 L 70 54 L 67 52 L 67 82 L 51 82 L 51 52 L 48 54 Z" />
 <rect class="v-tile" x="100" y="30" width="58" height="62" rx="10" />
@@ -502,7 +503,6 @@ Machine learning from scratch, interactive learning tools, and web apps.
 <figcaption>Saved clothes combined into outfit suggestions.</figcaption>
 </figure>
 </div>
-<a class="project-link" href="https://github.com/elvisamaya/tela" target="_blank" rel="noreferrer"><i class="fa-brands fa-github"></i> View on GitHub</a>
 </article>
 
 </div>
